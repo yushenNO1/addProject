@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9A1539301F25860A00C20D44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A15392F1F25860A00C20D44 /* main.m */; };
-		9A1539331F25860A00C20D44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1539321F25860A00C20D44 /* AppDelegate.m */; };
-		9A1539361F25860A00C20D44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1539351F25860A00C20D44 /* ViewController.m */; };
 		9A1539391F25860A00C20D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1539371F25860A00C20D44 /* Main.storyboard */; };
 		9A15393C1F25860B00C20D44 /* addProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A15393A1F25860A00C20D44 /* addProject.xcdatamodeld */; };
 		9A15393E1F25860B00C20D44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A15393D1F25860B00C20D44 /* Assets.xcassets */; };
@@ -28,15 +26,13 @@
 		9AD6B0D81F2ECC5E00FAC207 /* LYTBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0D51F2ECC5E00FAC207 /* LYTBackView.m */; };
 		9AD6B0D91F2ECC5E00FAC207 /* LYTPrivatelyToors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0D71F2ECC5E00FAC207 /* LYTPrivatelyToors.m */; };
 		9AD6B0DD1F2ECD5800FAC207 /* LYTGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0DC1F2ECD5800FAC207 /* LYTGoodsDetailVC.m */; };
+		9AD6B0E21F2ED05200FAC207 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0DE1F2ED05200FAC207 /* ViewController.m */; };
+		9AD6B0E31F2ED05200FAC207 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0E01F2ED05200FAC207 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9A15392B1F25860900C20D44 /* addProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = addProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A15392F1F25860A00C20D44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9A1539311F25860A00C20D44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
-		9A1539321F25860A00C20D44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
-		9A1539341F25860A00C20D44 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
-		9A1539351F25860A00C20D44 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
 		9A1539381F25860A00C20D44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A15393B1F25860A00C20D44 /* addProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = addProject.xcdatamodel; sourceTree = "<group>"; };
 		9A15393D1F25860B00C20D44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +66,10 @@
 		9AD6B0D71F2ECC5E00FAC207 /* LYTPrivatelyToors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTPrivatelyToors.m; sourceTree = "<group>"; };
 		9AD6B0DB1F2ECD5800FAC207 /* LYTGoodsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTGoodsDetailVC.h; sourceTree = "<group>"; };
 		9AD6B0DC1F2ECD5800FAC207 /* LYTGoodsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTGoodsDetailVC.m; sourceTree = "<group>"; };
+		9AD6B0DE1F2ED05200FAC207 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9AD6B0DF1F2ED05200FAC207 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9AD6B0E01F2ED05200FAC207 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9AD6B0E11F2ED05200FAC207 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,10 +207,10 @@
 		9AD6B0DA1F2ECD1B00FAC207 /* LYTAppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				9A1539311F25860A00C20D44 /* AppDelegate.h */,
-				9A1539321F25860A00C20D44 /* AppDelegate.m */,
-				9A1539341F25860A00C20D44 /* ViewController.h */,
-				9A1539351F25860A00C20D44 /* ViewController.m */,
+				9AD6B0DE1F2ED05200FAC207 /* ViewController.m */,
+				9AD6B0DF1F2ED05200FAC207 /* AppDelegate.h */,
+				9AD6B0E01F2ED05200FAC207 /* AppDelegate.m */,
+				9AD6B0E11F2ED05200FAC207 /* ViewController.h */,
 				9A1539371F25860A00C20D44 /* Main.storyboard */,
 			);
 			path = LYTAppDelegate;
@@ -288,18 +288,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AD6B0E21F2ED05200FAC207 /* ViewController.m in Sources */,
 				9AD6B0BF1F2ECB9800FAC207 /* LYTMerchantShopCell2.m in Sources */,
+				9AD6B0E31F2ED05200FAC207 /* AppDelegate.m in Sources */,
 				9AD6B0B41F2ECB6300FAC207 /* LYTLifeTableCell2.m in Sources */,
 				9AD6B0B31F2ECB6300FAC207 /* LYTLifeTableCell1.m in Sources */,
 				9AD6B0B51F2ECB6300FAC207 /* LYTLifeTableVC.m in Sources */,
-				9A1539361F25860A00C20D44 /* ViewController.m in Sources */,
 				9AD6B0D11F2ECC0300FAC207 /* LYTSearchVC.m in Sources */,
 				9AD6B0C31F2ECBC600FAC207 /* ShowVC.m in Sources */,
 				9AD6B0BE1F2ECB9800FAC207 /* LYTMerchantShopCell1.m in Sources */,
 				9AD6B0CD1F2ECBE300FAC207 /* LYTSortVC.m in Sources */,
 				9AD6B0D91F2ECC5E00FAC207 /* LYTPrivatelyToors.m in Sources */,
 				9AD6B0DD1F2ECD5800FAC207 /* LYTGoodsDetailVC.m in Sources */,
-				9A1539331F25860A00C20D44 /* AppDelegate.m in Sources */,
 				9AD6B0CC1F2ECBE300FAC207 /* LYTSortChildVC.m in Sources */,
 				9A1539301F25860A00C20D44 /* main.m in Sources */,
 				9AD6B0BD1F2ECB9800FAC207 /* LYTMerchantShop.m in Sources */,
