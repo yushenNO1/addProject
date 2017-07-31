@@ -9,9 +9,9 @@
 #import "LYTGoodsDetailVC.h"
 
 
-static 
+static NSString *DefaultCell = @"DefaultCell";
 
-@interface LYTGoodsDetailVC ()
+@interface LYTGoodsDetailVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,retain)UITableView *LYTGoodsDetailTable;
 
@@ -25,21 +25,35 @@ static
         _LYTGoodsDetailTable = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _LYTGoodsDetailTable.delegate = self;
         _LYTGoodsDetailTable.dataSource = self;
-        [_LYTGoodsDetailTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@""];
+        [_LYTGoodsDetailTable registerClass:[UITableViewCell class] forCellReuseIdentifier:DefaultCell];
     }
+    return _LYTGoodsDetailTable;
 }
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self.view addSubview:self.LYTGoodsDetailTable];
+}
+-(void)configHeaderView{
+    UIScrollView *scroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 375, 375)];
+    scroll.contentSize = CGSizeMake(375 * 3, 375);
+    scroll.pagingEnabled = YES;
+    self.LYTGoodsDetailTable.tableHeaderView = scroll;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark -------tableViewDataSource
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 10;
 }
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DefaultCell];
+    
+    return cell;
+}
+
 
 /*
 #pragma mark - Navigation

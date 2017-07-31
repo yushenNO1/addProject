@@ -77,7 +77,7 @@
     animation.fillMode = kCAFillModeForwards;
     
     animation.timingFunction=[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    NSLog(@"keyTimes---%@",animation.values);
+//    NSLog(@"keyTimes---%@",animation.values);
     //给这个view加上动画效果
     [animationView.layer addAnimation:animation forKey:nil];
     

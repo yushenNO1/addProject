@@ -13,7 +13,7 @@
 #import "ShowVC.h"                                  //3DTouch
 #import "LYTSortVC.h"                               //子视图控制器
 #import "LYTSearchVC.h"                             //搜索框
-
+#import "LYTGoodsDetailVC.h"                        //商品详情页面
 
 
 
@@ -78,6 +78,13 @@
     [btn6 setTitle:@"搜索框" forState:UIControlStateNormal];
     [btn6 addTarget:self action:@selector(btn6Click) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn6];
+    
+    UIButton *btn7 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn7.frame = CGRectMake(10, 250, 100, 20);
+    btn7.backgroundColor = [UIColor redColor];
+    [btn7 setTitle:@"商品详情" forState:UIControlStateNormal];
+    [btn7 addTarget:self action:@selector(btn7Click) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn7];
     
     
 }
@@ -190,5 +197,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-
+-(void)btn7Click{
+    
+}
 @end

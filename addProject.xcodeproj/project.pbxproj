@@ -207,10 +207,10 @@
 		9AD6B0DA1F2ECD1B00FAC207 /* LYTAppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				9AD6B0DE1F2ED05200FAC207 /* ViewController.m */,
 				9AD6B0DF1F2ED05200FAC207 /* AppDelegate.h */,
 				9AD6B0E01F2ED05200FAC207 /* AppDelegate.m */,
 				9AD6B0E11F2ED05200FAC207 /* ViewController.h */,
+				9AD6B0DE1F2ED05200FAC207 /* ViewController.m */,
 				9A1539371F25860A00C20D44 /* Main.storyboard */,
 			);
 			path = LYTAppDelegate;
