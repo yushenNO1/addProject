@@ -198,6 +198,7 @@
 }
 
 -(void)btn7Click{
-    
+    LYTGoodsDetailVC *vc = [[LYTGoodsDetailVC alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

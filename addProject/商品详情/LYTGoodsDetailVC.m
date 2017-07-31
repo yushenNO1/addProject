@@ -35,12 +35,20 @@ static NSString *DefaultCell = @"DefaultCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self configHeaderView];
     [self.view addSubview:self.LYTGoodsDetailTable];
 }
 -(void)configHeaderView{
     UIScrollView *scroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 375, 375)];
     scroll.contentSize = CGSizeMake(375 * 3, 375);
     scroll.pagingEnabled = YES;
+    
+    for (int i = 0; i < 3; i ++) {
+        UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(375 * i, 0, 375, 375)];
+        [img sd_setImageWithURL:[NSURL URLWithString:@"http://img002.21cnimg.com/photos/album/20150702/m600/2D79154370E073A2BA3CD4D07868861D.jpeg"]];
+        [scroll addSubview:img];
+    }
+    
     self.LYTGoodsDetailTable.tableHeaderView = scroll;
 }
 
@@ -54,6 +62,21 @@ static NSString *DefaultCell = @"DefaultCell";
     return cell;
 }
 
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return 375;
+//}
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    UIScrollView *scroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 375, 375)];
+//    scroll.contentSize = CGSizeMake(375 * 3, 375);
+//    scroll.pagingEnabled = YES;
+//    
+//    for (int i = 0; i < 3; i ++) {
+//        UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(375 * i, 0, 375, 375)];
+//        [img sd_setImageWithURL:[NSURL URLWithString:@"http://img002.21cnimg.com/photos/album/20150702/m600/2D79154370E073A2BA3CD4D07868861D.jpeg"]];
+//        [scroll addSubview:img];
+//    }
+//    return scroll;
+//}
 
 /*
 #pragma mark - Navigation
