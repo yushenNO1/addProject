@@ -9,6 +9,12 @@
 #ifndef addProjectHeader_h
 #define addProjectHeader_h
 
+//添加常用的宏
+#define kScreenWidth        [[UIScreen mainScreen] bounds].size.width           //屏宽
+#define kScreenHeight       [[UIScreen mainScreen] bounds].size.height          //屏高
+#define kScreenWidth1       ([UIScreen mainScreen].bounds.size.width / 375)     //适配宽度
+#define kScreenHeight1      ([UIScreen mainScreen].bounds.size.height / 667)    //适配高度
+
 
 //添加经常用到的第三方库
 #import <AFNetworking.h>            //网络加载

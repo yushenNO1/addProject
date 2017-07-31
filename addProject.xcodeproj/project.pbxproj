@@ -139,12 +139,12 @@
 		9AD6B0AC1F2ECB6300FAC207 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				9AD6B0B11F2ECB6300FAC207 /* LYTLifeTableVC.h */,
+				9AD6B0B21F2ECB6300FAC207 /* LYTLifeTableVC.m */,
 				9AD6B0AD1F2ECB6300FAC207 /* LYTLifeTableCell1.h */,
 				9AD6B0AE1F2ECB6300FAC207 /* LYTLifeTableCell1.m */,
 				9AD6B0AF1F2ECB6300FAC207 /* LYTLifeTableCell2.h */,
 				9AD6B0B01F2ECB6300FAC207 /* LYTLifeTableCell2.m */,
-				9AD6B0B11F2ECB6300FAC207 /* LYTLifeTableVC.h */,
-				9AD6B0B21F2ECB6300FAC207 /* LYTLifeTableVC.m */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -174,12 +174,12 @@
 		9AD6B0C41F2ECBE300FAC207 /* 子视图控制器 */ = {
 			isa = PBXGroup;
 			children = (
-				9AD6B0C51F2ECBE300FAC207 /* LYTSortChildCell.h */,
-				9AD6B0C61F2ECBE300FAC207 /* LYTSortChildCell.m */,
-				9AD6B0C71F2ECBE300FAC207 /* LYTSortChildVC.h */,
-				9AD6B0C81F2ECBE300FAC207 /* LYTSortChildVC.m */,
 				9AD6B0C91F2ECBE300FAC207 /* LYTSortVC.h */,
 				9AD6B0CA1F2ECBE300FAC207 /* LYTSortVC.m */,
+				9AD6B0C71F2ECBE300FAC207 /* LYTSortChildVC.h */,
+				9AD6B0C81F2ECBE300FAC207 /* LYTSortChildVC.m */,
+				9AD6B0C51F2ECBE300FAC207 /* LYTSortChildCell.h */,
+				9AD6B0C61F2ECBE300FAC207 /* LYTSortChildCell.m */,
 			);
 			path = "子视图控制器";
 			sourceTree = "<group>";

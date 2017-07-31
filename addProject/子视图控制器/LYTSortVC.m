@@ -127,7 +127,7 @@ static BOOL isUp = YES;
         
         //上下滑动画
         vc.tableOffset = ^(double offset){
-            //            NSLog(@"tableOffset---%.2f",offset);
+//            NSLog(@"tableOffset---%.2f",offset);
             //判断上划还是下划
             if (offset > 0) {
                 isUp = NO;
