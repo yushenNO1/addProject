@@ -15,6 +15,7 @@
 #define kScreenWidth1       ([UIScreen mainScreen].bounds.size.width / 375)     //适配宽度
 #define kScreenHeight1      ([UIScreen mainScreen].bounds.size.height / 667)    //适配高度
 
+#define WDH_CGRectMake(x,y,width,height)        CGRectMake((x) * kScreenWidth1, (y) * kScreenHeight1, (width) * kScreenWidth1, (height) * kScreenHeight1)
 
 //添加经常用到的第三方库
 #import <AFNetworking.h>            //网络加载

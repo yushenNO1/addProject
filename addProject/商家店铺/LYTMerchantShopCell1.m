@@ -7,8 +7,7 @@
 //
 
 #import "LYTMerchantShopCell1.h"
-#define kScreenWidth1       ([UIScreen mainScreen].bounds.size.width / 375)     //适配宽度
-#define kScreenHeight1      ([UIScreen mainScreen].bounds.size.height / 667)    //适配高度
+
 
 @implementation LYTMerchantShopCell1
 

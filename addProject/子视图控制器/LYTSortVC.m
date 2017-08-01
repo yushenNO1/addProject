@@ -37,7 +37,7 @@
 }
 -(UILabel *)label{
     if (!_label) {
-        _label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, TableWidth, TableCellHight)];
+        _label = [[UILabel alloc]initWithFrame:WDH_CGRectMake(0, 0, TableWidth, TableCellHight)];
         _label.textAlignment = NSTextAlignmentCenter;
         _label.font = [UIFont systemFontOfSize:14];
     }
@@ -61,7 +61,7 @@ static BOOL isUp = YES;
 //创建列表控制
 -(UITableView *)LYTSortTable{
     if (!_LYTSortTable) {
-        _LYTSortTable = [[UITableView alloc]initWithFrame:CGRectMake(0, HeaderViewHight , TableWidth, 667 - HeaderViewHight - FooterViewHight) style:UITableViewStylePlain];
+        _LYTSortTable = [[UITableView alloc]initWithFrame:WDH_CGRectMake(0, HeaderViewHight , TableWidth, 667 - HeaderViewHight - FooterViewHight) style:UITableViewStylePlain];
         _LYTSortTable.delegate = self;
         _LYTSortTable.dataSource = self;
         [_LYTSortTable registerClass:[LYTSortTableCell class] forCellReuseIdentifier:@"cell"];
@@ -111,7 +111,7 @@ static BOOL isUp = YES;
     //添加底部是图
     [self configFootView];
     //状态栏
-    _statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, self.view.bounds.size.width, 20)];
+    _statusBarView = [[UIView alloc] initWithFrame:WDH_CGRectMake(0, -20, self.view.bounds.size.width, 20)];
     _statusBarView.backgroundColor=[UIColor colorWithRed:33/255.0 green:35/255.0 blue:33/255.0 alpha:0];
     [self.navigationController.navigationBar addSubview:_statusBarView];
     
@@ -122,7 +122,7 @@ static BOOL isUp = YES;
     //添加子视图
     for (int i = 0; i < _sortArr.count; i ++) {
         LYTSortChildVC *vc = [[LYTSortChildVC alloc]init];
-        [vc.view setFrame:CGRectMake(TableWidth, HeaderViewHight, 375 - TableWidth, ChildVCHight_Foot)];
+        [vc.view setFrame:WDH_CGRectMake(TableWidth, HeaderViewHight, 375 - TableWidth, ChildVCHight_Foot)];
         [self addChildViewController:vc];
         
         //上下滑动画
@@ -137,8 +137,8 @@ static BOOL isUp = YES;
             }
             if (isUp == YES) {
                 [UIView animateWithDuration:0.5 animations:^{
-                    [vc.view setFrame:CGRectMake(TableWidth, HeaderViewHight, 375 - TableWidth, ChildVCHight_Foot)];
-                    _LYTSortTable.frame = CGRectMake(0, HeaderViewHight, TableWidth, 667 - HeaderViewHight);
+                    [vc.view setFrame:WDH_CGRectMake(TableWidth, HeaderViewHight, 375 - TableWidth, ChildVCHight_Foot)];
+                    _LYTSortTable.frame = WDH_CGRectMake(0, HeaderViewHight, TableWidth, 667 - HeaderViewHight);
                     [self.navigationController.navigationBar setValue:@(0)forKeyPath:@"backgroundView.alpha"];
                     self.navigationController.navigationBar.barStyle=UIBarStyleDefault;
                     _statusBarView.backgroundColor=[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:self.LYTSortTable.contentOffset.y/(105+64)];
@@ -147,8 +147,8 @@ static BOOL isUp = YES;
                 }];
             }else{
                 [UIView animateWithDuration:0.5 animations:^{
-                    [vc.view setFrame:CGRectMake(TableWidth, 64, 375 - TableWidth, ChildVCHight_Top)];
-                    _LYTSortTable.frame = CGRectMake(0, 64, TableWidth, 667 -64);
+                    [vc.view setFrame:WDH_CGRectMake(TableWidth, 64, 375 - TableWidth, ChildVCHight_Top)];
+                    _LYTSortTable.frame = WDH_CGRectMake(0, 64, TableWidth, 667 -64);
                     [self.navigationController.navigationBar setValue:@(1)forKeyPath:@"backgroundView.alpha"];
                     self.navigationController.navigationBar.barStyle=UIBarStyleDefault;
                     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
@@ -162,8 +162,8 @@ static BOOL isUp = YES;
             if (offset == 0) {
                 if (isUp == YES) {
                     [UIView animateWithDuration:0.5 animations:^{
-                        [vc.view setFrame:CGRectMake(TableWidth, HeaderViewHight, 375 - TableWidth, ChildVCHight_Foot)];
-                        _LYTSortTable.frame = CGRectMake(0, HeaderViewHight, TableWidth, 667 - HeaderViewHight);
+                        [vc.view setFrame:WDH_CGRectMake(TableWidth, HeaderViewHight, 375 - TableWidth, ChildVCHight_Foot)];
+                        _LYTSortTable.frame = WDH_CGRectMake(0, HeaderViewHight, TableWidth, 667 - HeaderViewHight);
                         [self.navigationController.navigationBar setValue:@(0)forKeyPath:@"backgroundView.alpha"];
                         self.navigationController.navigationBar.barStyle=UIBarStyleDefault;
                         _statusBarView.backgroundColor=[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:self.LYTSortTable.contentOffset.y/(105+64)];
@@ -172,8 +172,8 @@ static BOOL isUp = YES;
                     }];
                 }else{
                     [UIView animateWithDuration:0.5 animations:^{
-                        [vc.view setFrame:CGRectMake(TableWidth, 64, 375 - TableWidth, ChildVCHight_Top)];
-                        _LYTSortTable.frame = CGRectMake(0, 64, TableWidth, 667 -64);
+                        [vc.view setFrame:WDH_CGRectMake(TableWidth, 64, 375 - TableWidth, ChildVCHight_Top)];
+                        _LYTSortTable.frame = WDH_CGRectMake(0, 64, TableWidth, 667 -64);
                         [self.navigationController.navigationBar setValue:@(1)forKeyPath:@"backgroundView.alpha"];
                         self.navigationController.navigationBar.barStyle=UIBarStyleDefault;
                         self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
@@ -190,7 +190,7 @@ static BOOL isUp = YES;
             
             if (isUp == YES){
                 UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-                btn.frame = CGRectMake(TableWidth + rect.origin.x, HeaderViewHight + rect.origin.y, 30, 30);
+                btn.frame = WDH_CGRectMake(TableWidth + rect.origin.x, HeaderViewHight + rect.origin.y, 30, 30);
                 btn.backgroundColor = [UIColor redColor];
                 [self.view addSubview:btn];
                 [self.BtnArr addObject:btn];
@@ -203,7 +203,7 @@ static BOOL isUp = YES;
                 
             }else{
                 UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-                btn.frame = CGRectMake(TableWidth + rect.origin.x, 64 + rect.origin.y, 30, 30);
+                btn.frame = WDH_CGRectMake(TableWidth + rect.origin.x, 64 + rect.origin.y, 30, 30);
                 btn.backgroundColor = [UIColor redColor];
                 [self.view addSubview:btn];
                 [self.BtnArr addObject:btn];
@@ -232,20 +232,20 @@ static BOOL isUp = YES;
     }
 }
 -(void)configHeaderView{
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 375, HeaderViewHight)];
+    UIView *headerView = [[UIView alloc]initWithFrame:WDH_CGRectMake(0, 0, 375, HeaderViewHight)];
     headerView.backgroundColor = [UIColor redColor];
     [self.view sendSubviewToBack:headerView];
     [self.view addSubview:headerView];
 }
 -(void)configFootView{
-    UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 667 - FooterViewHight, 375, FooterViewHight)];
+    UIView *footView = [[UIView alloc]initWithFrame:WDH_CGRectMake(0, 667 - FooterViewHight, 375, FooterViewHight)];
     footView.backgroundColor = [UIColor redColor];
     [self.view bringSubviewToFront:footView];
     [self.view addSubview:footView];
     
     //购物车按钮
     UIButton *shopCartBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    shopCartBtn.frame = CGRectMake(20, -20, 40,  40);
+    shopCartBtn.frame = WDH_CGRectMake(20, -20, 40,  40);
     shopCartBtn.backgroundColor = [UIColor greenColor];
     shopCartBtn.layer.cornerRadius = 20;
     shopCartBtn.layer.masksToBounds = YES;
@@ -253,7 +253,7 @@ static BOOL isUp = YES;
     [shopCartBtn addTarget:self action:@selector(shopCartBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     //金额
-    UILabel *moneyLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, 10, 200, 30)];
+    UILabel *moneyLabel = [[UILabel alloc]initWithFrame:WDH_CGRectMake(60, 10, 200, 30)];
     moneyLabel.text = @"¥ 98.00";
     moneyLabel.font = [UIFont systemFontOfSize:25];
     [footView addSubview:moneyLabel];
@@ -261,7 +261,7 @@ static BOOL isUp = YES;
     
     //结算
     UIButton *settlementBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    settlementBtn.frame = CGRectMake(275, 0, 100,  50);
+    settlementBtn.frame = WDH_CGRectMake(275, 0, 100,  50);
     settlementBtn.backgroundColor = [UIColor greenColor];
     [footView addSubview:settlementBtn];
     [settlementBtn addTarget:self action:@selector(settlementBtnBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -287,9 +287,9 @@ static BOOL isUp = YES;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     LYTSortChildVC *vc = self.childViewControllers[indexPath.row];
     if (isUp == YES) {
-        [vc.view setFrame:CGRectMake(TableWidth, HeaderViewHight, 375 - TableWidth, ChildVCHight_Foot)];
+        [vc.view setFrame:WDH_CGRectMake(TableWidth, HeaderViewHight, 375 - TableWidth, ChildVCHight_Foot)];
     }else{
-        [vc.view setFrame:CGRectMake(TableWidth, 64, 375 - TableWidth, ChildVCHight_Top)];
+        [vc.view setFrame:WDH_CGRectMake(TableWidth, 64, 375 - TableWidth, ChildVCHight_Top)];
     }
     switch (indexPath.row) {
         case 0:

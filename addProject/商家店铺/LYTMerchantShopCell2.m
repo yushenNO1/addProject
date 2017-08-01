@@ -5,10 +5,7 @@
 //  Created by 云盛科技 on 2017/7/24.
 //  Copyright © 2017年 神廷. All rights reserved.
 //
-#define kScreenWidth1       ([UIScreen mainScreen].bounds.size.width / 375)     //适配宽度
-#define kScreenHeight1      ([UIScreen mainScreen].bounds.size.height / 667)    //适配高度
 
-#define WDH_CGRectMake(x,y,width,height)        CGRectMake(x * kScreenWidth1, y * kScreenHeight1, width * kScreenWidth1, height * kScreenHeight1)
 
 
 #import "LYTMerchantShopCell2.h"

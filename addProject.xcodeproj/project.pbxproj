@@ -13,6 +13,7 @@
 		9A15393C1F25860B00C20D44 /* addProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A15393A1F25860A00C20D44 /* addProject.xcdatamodeld */; };
 		9A15393E1F25860B00C20D44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A15393D1F25860B00C20D44 /* Assets.xcassets */; };
 		9A1539411F25860B00C20D44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A15393F1F25860B00C20D44 /* LaunchScreen.storyboard */; };
+		9AC088961F307C00007AA17D /* LYTGoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC088951F307C00007AA17D /* LYTGoodsDetailCell.m */; };
 		9AD6B0B31F2ECB6300FAC207 /* LYTLifeTableCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0AE1F2ECB6300FAC207 /* LYTLifeTableCell1.m */; };
 		9AD6B0B41F2ECB6300FAC207 /* LYTLifeTableCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0B01F2ECB6300FAC207 /* LYTLifeTableCell2.m */; };
 		9AD6B0B51F2ECB6300FAC207 /* LYTLifeTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0B21F2ECB6300FAC207 /* LYTLifeTableVC.m */; };
@@ -40,6 +41,8 @@
 		9A15393D1F25860B00C20D44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A1539401F25860B00C20D44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A1539421F25860B00C20D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AC088941F307C00007AA17D /* LYTGoodsDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTGoodsDetailCell.h; sourceTree = "<group>"; };
+		9AC088951F307C00007AA17D /* LYTGoodsDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTGoodsDetailCell.m; sourceTree = "<group>"; };
 		9AD6B0AD1F2ECB6300FAC207 /* LYTLifeTableCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTLifeTableCell1.h; sourceTree = "<group>"; };
 		9AD6B0AE1F2ECB6300FAC207 /* LYTLifeTableCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTLifeTableCell1.m; sourceTree = "<group>"; };
 		9AD6B0AF1F2ECB6300FAC207 /* LYTLifeTableCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTLifeTableCell2.h; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 			children = (
 				9AD6B0DB1F2ECD5800FAC207 /* LYTGoodsDetailVC.h */,
 				9AD6B0DC1F2ECD5800FAC207 /* LYTGoodsDetailVC.m */,
+				9AC088941F307C00007AA17D /* LYTGoodsDetailCell.h */,
+				9AC088951F307C00007AA17D /* LYTGoodsDetailCell.m */,
 			);
 			path = "商品详情";
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				9AD6B0B51F2ECB6300FAC207 /* LYTLifeTableVC.m in Sources */,
 				9AD6B0D11F2ECC0300FAC207 /* LYTSearchVC.m in Sources */,
 				9AD6B0C31F2ECBC600FAC207 /* ShowVC.m in Sources */,
+				9AC088961F307C00007AA17D /* LYTGoodsDetailCell.m in Sources */,
 				9AD6B0BE1F2ECB9800FAC207 /* LYTMerchantShopCell1.m in Sources */,
 				9AD6B0CD1F2ECBE300FAC207 /* LYTSortVC.m in Sources */,
 				9AD6B0D91F2ECC5E00FAC207 /* LYTPrivatelyToors.m in Sources */,

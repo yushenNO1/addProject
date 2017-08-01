@@ -24,7 +24,7 @@
 -(UIButton *)btn1{
     if (!_btn1) {
         _btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        _btn1.frame = CGRectMake(3, 3, 183, 100);
+        _btn1.frame = WDH_CGRectMake(3, 3, 183, 100);
         _btn1.backgroundColor = [UIColor redColor];
         _btn1.layer.cornerRadius = 3;
         _btn1.layer.masksToBounds = YES;
@@ -34,7 +34,7 @@
 -(UIButton *)btn2{
     if (!_btn2) {
         _btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
-        _btn2.frame = CGRectMake(189, 3, 183, 100);
+        _btn2.frame = WDH_CGRectMake(189, 3, 183, 100);
         _btn2.backgroundColor = [UIColor redColor];
         _btn2.layer.cornerRadius = 3;
         _btn2.layer.masksToBounds = YES;
@@ -44,7 +44,7 @@
 -(UIButton *)btn3{
     if (!_btn3) {
         _btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
-        _btn3.frame = CGRectMake(3, 106, 183, 100);
+        _btn3.frame = WDH_CGRectMake(3, 106, 183, 100);
         _btn3.backgroundColor = [UIColor redColor];
         _btn3.layer.cornerRadius = 3;
         _btn3.layer.masksToBounds = YES;
@@ -54,7 +54,7 @@
 -(UIButton *)btn4{
     if (!_btn4) {
         _btn4 = [UIButton buttonWithType:UIButtonTypeCustom];
-        _btn4.frame = CGRectMake(189, 106, 183, 100);
+        _btn4.frame = WDH_CGRectMake(189, 106, 183, 100);
         _btn4.backgroundColor = [UIColor redColor];
         _btn4.layer.cornerRadius = 3;
         _btn4.layer.masksToBounds = YES;

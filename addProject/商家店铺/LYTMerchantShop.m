@@ -127,6 +127,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         return UIEdgeInsetsMake(5, 5, 5, 5) ;
     }
 }
+
 ////头尾
 //-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 //{
@@ -149,7 +150,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             cell.backgroundColor = [UIColor colorWithRed:234 / 255.0 green:234 / 255.0 blue:234 / 255.0 alpha:1];
             return cell;
         }else if (indexPath.row == 1){
-            UIView *view = [[UIView alloc]initWithFrame:CGRectMake(10, 10, 355, 130)];
+            UIView *view = [[UIView alloc]initWithFrame:WDH_CGRectMake(10, 10, 355, 130)];
             view.backgroundColor = [UIColor redColor];
             [cell addSubview:view];
             cell.backgroundColor = [UIColor whiteColor];
@@ -173,7 +174,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     [self tanchuView];
     
 //    if (i % 2 == 0) {
-//        UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(100 , 100, 100, 200)];
+//        UIImageView *img = [[UIImageView alloc]initWithFrame:WDH_CGRectMake(100 , 100, 100, 200)];
 //        img.backgroundColor = [UIColor redColor];
 //        [LYTBackView showWithView:img];
 //    }else{
@@ -182,7 +183,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 //    i ++;
 }
 -(void)tanchuView{
-    UIView *tanchuView = [[UIView alloc]initWithFrame:CGRectMake(20, 70, 335, 480)];
+    UIView *tanchuView = [[UIView alloc]initWithFrame:WDH_CGRectMake(20, 70, 335, 480)];
     tanchuView.backgroundColor = [UIColor whiteColor];
     tanchuView.layer.cornerRadius = 10;
     tanchuView.layer.masksToBounds = YES;
@@ -190,25 +191,25 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     
     
     //图片
-    UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(30, 15, 275, 275)];
+    UIImageView *img = [[UIImageView alloc]initWithFrame:WDH_CGRectMake(30, 15, 275, 275)];
     img.backgroundColor = [UIColor redColor];
     [tanchuView addSubview:img];
     
     //标题
-    UILabel *titleLabel= [[UILabel alloc]initWithFrame:CGRectMake(30, 290, 275, 25)];
+    UILabel *titleLabel= [[UILabel alloc]initWithFrame:WDH_CGRectMake(30, 290, 275, 25)];
     titleLabel.font = [UIFont systemFontOfSize:15];
     titleLabel.text = @"衣服标题--奥术大师多";
     [tanchuView addSubview:titleLabel];
     
     //内容
-    UILabel *contentLabel= [[UILabel alloc]initWithFrame:CGRectMake(30, 315, 275, 20)];
+    UILabel *contentLabel= [[UILabel alloc]initWithFrame:WDH_CGRectMake(30, 315, 275, 20)];
     contentLabel.font = [UIFont systemFontOfSize:12];
     contentLabel.textColor = [UIColor colorWithRed:188/255.0 green:190/255.0 blue:195/255.0 alpha:1];
     contentLabel.text = @"2017衣服标题";
     [tanchuView addSubview:contentLabel];
     
     //金额
-    UILabel *moneyLabel= [[UILabel alloc]initWithFrame:CGRectMake(30, 335, 275, 25)];
+    UILabel *moneyLabel= [[UILabel alloc]initWithFrame:WDH_CGRectMake(30, 335, 275, 25)];
     moneyLabel.text = @"¥ 98";
     moneyLabel.textColor = [UIColor colorWithRed:255/255.0 green:89/255.0 blue:119/255.0 alpha:1];
     moneyLabel.font = [UIFont systemFontOfSize:18];
@@ -216,7 +217,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     
     // 加减+中间label
     jianBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    jianBtn.frame = CGRectMake(120, 360, 30, 30);
+    jianBtn.frame = WDH_CGRectMake(120, 360, 30, 30);
     jianBtn.layer.cornerRadius = 15;
     jianBtn.layer.masksToBounds = YES;
     jianBtn.titleLabel.font = [UIFont systemFontOfSize:18];
@@ -226,7 +227,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     [jianBtn addTarget:self action:@selector(jiaJianBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    countLabel = [[UILabel alloc]initWithFrame:CGRectMake(150, 360, 35, 30)];
+    countLabel = [[UILabel alloc]initWithFrame:WDH_CGRectMake(150, 360, 35, 30)];
     countLabel.text = @"2";
     countLabel.font = [UIFont systemFontOfSize:18];
     countLabel.textAlignment = NSTextAlignmentCenter;
@@ -243,7 +244,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     
     
     UIButton *jiaBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    jiaBtn.frame = CGRectMake(185, 360, 30, 30);
+    jiaBtn.frame = WDH_CGRectMake(185, 360, 30, 30);
     jiaBtn.layer.cornerRadius = 15;
     jiaBtn.layer.masksToBounds = YES;
     jiaBtn.titleLabel.font = [UIFont systemFontOfSize:18];
@@ -254,14 +255,14 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     [jiaBtn addTarget:self action:@selector(jiaJianBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     //合计
-    UILabel *hejiTitle = [[UILabel alloc]initWithFrame:CGRectMake(120, 400, 20, 25)];
+    UILabel *hejiTitle = [[UILabel alloc]initWithFrame:WDH_CGRectMake(120, 400, 20, 25)];
     hejiTitle.text = @"共:";
     hejiTitle.textColor = [UIColor colorWithRed:197/255.0 green:198/255.0 blue:203/255.0 alpha:1];
     hejiTitle.font = [UIFont systemFontOfSize:12];
     hejiTitle.textAlignment = NSTextAlignmentCenter;
     [tanchuView addSubview:hejiTitle];
     
-    hejiLabel = [[UILabel alloc]initWithFrame:CGRectMake(140, 400, 80, 25)];
+    hejiLabel = [[UILabel alloc]initWithFrame:WDH_CGRectMake(140, 400, 80, 25)];
     hejiLabel.text = @"¥999";
     hejiLabel.textColor = [UIColor colorWithRed:255/255.0 green:89/255.0 blue:119/255.0 alpha:1];
     hejiLabel.font = [UIFont systemFontOfSize:18];
@@ -270,7 +271,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     
     
     UIButton *OKBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    OKBtn.frame = CGRectMake(120, 440, 95, 30);
+    OKBtn.frame = WDH_CGRectMake(120, 440, 95, 30);
     OKBtn.layer.cornerRadius = 15;
     OKBtn.layer.masksToBounds = YES;
     OKBtn.backgroundColor = [UIColor colorWithRed:255/255.0 green:89/255.0 blue:119/255.0 alpha:1];
