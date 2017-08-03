@@ -43,9 +43,11 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[LYTMerchantShopCell2 class] forCellWithReuseIdentifier:MerchantShopCell2];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(begainFullScreen) name:UIWindowDidBecomeVisibleNotification object:nil];//进入全屏
 }
-
+-(void)begainFullScreen{
+    NSLog(@"进入全屏走不走");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -150,9 +152,14 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             cell.backgroundColor = [UIColor colorWithRed:234 / 255.0 green:234 / 255.0 blue:234 / 255.0 alpha:1];
             return cell;
         }else if (indexPath.row == 1){
-            UIView *view = [[UIView alloc]initWithFrame:WDH_CGRectMake(10, 10, 355, 130)];
-            view.backgroundColor = [UIColor redColor];
-            [cell addSubview:view];
+            UIWebView *webView = [[UIWebView alloc]initWithFrame:WDH_CGRectMake(10, 10, 355, 130)];
+            webView.backgroundColor = [UIColor redColor];
+//            [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"]]];
+            NSString *html = [NSString stringWithFormat:@"<video width=355 height=130 webkit-playsinline loop=\"loop\" autoplay><source type=\"video/mp4\" src=\"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4\" ></video>"];
+            [webView loadHTMLString:html baseURL:nil];
+            webView.mediaPlaybackRequiresUserAction = NO;
+            webView.allowsInlineMediaPlayback = YES;
+            [cell addSubview:webView];
             cell.backgroundColor = [UIColor whiteColor];
         }else{
             cell.backgroundColor = [UIColor blueColor];

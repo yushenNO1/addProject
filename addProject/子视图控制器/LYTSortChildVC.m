@@ -33,7 +33,7 @@
     LYTSortChildCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LYTSortChildCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.addBtn.tag = indexPath.row;
-//    [cell.addBtn addTarget:self action:@selector(cellAddBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.addBtn addTarget:self action:@selector(cellAddBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     cell.BtnClick = ^(UIButton *sender){
         
         CGRect rect = [tableView rectForRowAtIndexPath:indexPath];
@@ -48,6 +48,8 @@
 }
 -(void)cellAddBtnClick:(UIButton *)sender{
     NSLog(@"cellAddBtnClick*******%ld",sender.tag);
+    
+    
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{

@@ -34,7 +34,7 @@
 //自己的封装
 #import "LYTBackView.h"             //弹出蒙板
 #import "LYTPrivatelyToors.h"       //封装的私有方法
-
+#import "LYTFMDB.h"                 //数据库使用
 
 
 #endif /* addProjectHeader_h */

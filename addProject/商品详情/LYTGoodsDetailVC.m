@@ -14,6 +14,8 @@
 
 #import "LYTGoodsDetailVC.h"
 #import "LYTGoodsDetailCell.h"
+#import "LYTSudokuView.h"                           //规格
+
 
 static NSString *DefaultCell        = @"DefaultCell";
 static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
@@ -46,6 +48,26 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     if (!_popView) {
         _popView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight/2.0f)];
         _popView.backgroundColor = [UIColor colorWithRed:1.000 green:0.988 blue:0.960 alpha:1.000];
+        UIWindow *window = [[[UIApplication sharedApplication]delegate]window];
+        [window addSubview:_popView];
+        
+        NSArray * btnTitleArr = @[@"asdasdas",@"奥术大师",@"按时",@"打算额",@"按时若翁群请问",@"恶趣味奥所多",@"我去玩才多少",@"七位数多",@"请问",@"其实规范"];
+        __block float frameY = 0;
+        for (int i = 0; i < 2; i ++ ) {
+            LYTSudokuView *sudokuView = [[LYTSudokuView alloc]initWithFrame:CGRectMake(0, frameY, kScreenWidth, kScreenHeight/2.0f)];
+            //        sudokuView.selectType = LYTSudokuBtnSelectMultiple;
+            sudokuView.backgroundColor = [UIColor greenColor];
+            [sudokuView configViewWithDataArr:btnTitleArr];
+            sudokuView.selectIndex = i;
+            __block LYTSudokuView *welfSelf = sudokuView;
+            sudokuView.frame_hight = ^(float hight){
+                NSLog(@"sudokuView.frame_hight---%f",hight);
+                welfSelf.frame = CGRectMake(0, frameY, kScreenWidth, hight);
+                frameY = frameY + hight;
+            };
+            [_popView addSubview:sudokuView];
+        }
+        
     }
     return _popView;
 }
@@ -297,8 +319,9 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.3 animations:^{
             self.view.layer.transform = [self secondStepTransform];
-            [LYTBackView showWithView:self.popView];
-            self.popView.transform = CGAffineTransformTranslate(self.popView.transform, 0, -kScreenHeight / 2.0f);
+            [LYTBackView showWithView:[UIView new]];
+            self.popView.frame = CGRectMake(0, kScreenHeight/2.0f, kScreenWidth, kScreenHeight/2.0f);
+//            self.popView.transform = CGAffineTransformTranslate(self.popView.transform, 0, -kScreenHeight / 2.0f);
             
         }];
     }];
@@ -306,12 +329,13 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 -(void)close{
     [UIView animateWithDuration:0.3 animations:^{
         self.view.layer.transform = [self firstStepTransform];
-        self.popView.transform = CGAffineTransformIdentity;
+        self.popView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight/2.0f);
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.2 animations:^{
             self.view.layer.transform = CATransform3DIdentity;
         } completion:^(BOOL finished) {
-            self.popView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight/2.0f);
+            [self.popView removeFromSuperview];
+            self.popView = nil;
         }];
     }];
 }

@@ -17,7 +17,6 @@
 @end
 
 
-
 @interface LYTBackView : UIView<LYTBackViewDelegate>
 @property(nonatomic,retain)UIView *dissView;
 @property(nonatomic,retain)id <LYTBackViewDelegate>delegate;

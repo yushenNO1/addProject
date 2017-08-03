@@ -15,6 +15,7 @@
 		9A1539411F25860B00C20D44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A15393F1F25860B00C20D44 /* LaunchScreen.storyboard */; };
 		9A1642E61F31A9C000E361D4 /* LYTFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1642E51F31A9C000E361D4 /* LYTFMDB.m */; };
 		9A1642E91F31ACE800E361D4 /* LYTGoodsInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1642E81F31ACE800E361D4 /* LYTGoodsInfoModel.m */; };
+		9A86477B1F32FFD800480905 /* LYTSudokuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86477A1F32FFD800480905 /* LYTSudokuView.m */; };
 		9AC088961F307C00007AA17D /* LYTGoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC088951F307C00007AA17D /* LYTGoodsDetailCell.m */; };
 		9AD6B0B31F2ECB6300FAC207 /* LYTLifeTableCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0AE1F2ECB6300FAC207 /* LYTLifeTableCell1.m */; };
 		9AD6B0B41F2ECB6300FAC207 /* LYTLifeTableCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0B01F2ECB6300FAC207 /* LYTLifeTableCell2.m */; };
@@ -47,6 +48,9 @@
 		9A1642E51F31A9C000E361D4 /* LYTFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTFMDB.m; sourceTree = "<group>"; };
 		9A1642E71F31ACE800E361D4 /* LYTGoodsInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTGoodsInfoModel.h; sourceTree = "<group>"; };
 		9A1642E81F31ACE800E361D4 /* LYTGoodsInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTGoodsInfoModel.m; sourceTree = "<group>"; };
+		9A8647771F32CD6200480905 /* big_buck_bunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = big_buck_bunny.mp4; sourceTree = "<group>"; };
+		9A8647791F32FFD800480905 /* LYTSudokuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTSudokuView.h; sourceTree = "<group>"; };
+		9A86477A1F32FFD800480905 /* LYTSudokuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTSudokuView.m; sourceTree = "<group>"; };
 		9AC088941F307C00007AA17D /* LYTGoodsDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTGoodsDetailCell.h; sourceTree = "<group>"; };
 		9AC088951F307C00007AA17D /* LYTGoodsDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTGoodsDetailCell.m; sourceTree = "<group>"; };
 		9AD6B0AD1F2ECB6300FAC207 /* LYTLifeTableCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTLifeTableCell1.h; sourceTree = "<group>"; };
@@ -119,7 +123,9 @@
 		9A15392D1F25860A00C20D44 /* addProject */ = {
 			isa = PBXGroup;
 			children = (
+				9A8647771F32CD6200480905 /* big_buck_bunny.mp4 */,
 				9AD6B0DA1F2ECD1B00FAC207 /* LYTAppDelegate */,
+				9A8647781F32FE6000480905 /* 商品规格 */,
 				9AD6B0D21F2ECC2000FAC207 /* 商品详情 */,
 				9AD6B0CE1F2ECC0300FAC207 /* 搜索框 */,
 				9AD6B0C41F2ECBE300FAC207 /* 子视图控制器 */,
@@ -143,6 +149,15 @@
 				9AD6B0E41F2ED6FF00FAC207 /* addProjectHeader.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9A8647781F32FE6000480905 /* 商品规格 */ = {
+			isa = PBXGroup;
+			children = (
+				9A8647791F32FFD800480905 /* LYTSudokuView.h */,
+				9A86477A1F32FFD800480905 /* LYTSudokuView.m */,
+			);
+			path = "商品规格";
 			sourceTree = "<group>";
 		};
 		9AD6B0AC1F2ECB6300FAC207 /* 首页 */ = {
@@ -399,6 +414,7 @@
 				9A1539301F25860A00C20D44 /* main.m in Sources */,
 				9AD6B0BD1F2ECB9800FAC207 /* LYTMerchantShop.m in Sources */,
 				9AD6B0D81F2ECC5E00FAC207 /* LYTBackView.m in Sources */,
+				9A86477B1F32FFD800480905 /* LYTSudokuView.m in Sources */,
 				9A15393C1F25860B00C20D44 /* addProject.xcdatamodeld in Sources */,
 				9AD6B0CB1F2ECBE300FAC207 /* LYTSortChildCell.m in Sources */,
 			);
