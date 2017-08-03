@@ -9,6 +9,8 @@
 #import "LYTBackView.h"
 static LYTBackView *_instance;
 static UIView *dissView;
+
+
 @implementation LYTBackView
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone
@@ -18,6 +20,7 @@ static UIView *dissView;
     dispatch_once(&onceToken,^{
         // 只执行1次的代码(这里面默认是线程安全的)
         _instance = [super allocWithZone:zone];
+        
     });
     return _instance;
 }
@@ -28,6 +31,7 @@ static UIView *dissView;
 
 +(void)showWithView:(UIView *)topView{
     LYTBackView *view = [self shareSingle];
+    
     view.backgroundColor = [UIColor colorWithRed:149/255.0 green:149/255.0 blue:149/255.0 alpha:0.7];
     UIWindow *window = [[[UIApplication sharedApplication]delegate]window];
     [window addSubview:view];
@@ -42,13 +46,17 @@ static UIView *dissView;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dissMiss)];
     [view addGestureRecognizer:tapGesture];
-    
+
 }
+
+
 +(void)dissMiss{
     LYTBackView *view = [self shareSingle];
     [view removeFromSuperview];
     [dissView removeFromSuperview];
+    [view.delegate touchBackView];
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

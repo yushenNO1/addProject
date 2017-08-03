@@ -17,12 +17,23 @@
 
 #define WDH_CGRectMake(x,y,width,height)        CGRectMake((x) * kScreenWidth1, (y) * kScreenHeight1, (width) * kScreenWidth1, (height) * kScreenHeight1)
 
+
+
+
 //添加经常用到的第三方库
 #import <AFNetworking.h>            //网络加载
 #import <MJRefresh.h>               //刷新加载
 #import <UIImageView+WebCache.h>    //图片加载
 #import <SVProgressHUD.h>           //加载时的菊花圈
 #import <SDCycleScrollView.h>       //轮播图
+
+
+
+
+
+//自己的封装
+#import "LYTBackView.h"             //弹出蒙板
+#import "LYTPrivatelyToors.h"       //封装的私有方法
 
 
 

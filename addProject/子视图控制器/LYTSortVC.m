@@ -236,6 +236,33 @@ static BOOL isUp = YES;
     headerView.backgroundColor = [UIColor redColor];
     [self.view sendSubviewToBack:headerView];
     [self.view addSubview:headerView];
+    
+    UIImageView *headImg = [[UIImageView alloc]initWithFrame:CGRectMake(30, 40, 60, 60)];
+    headImg.backgroundColor = [UIColor whiteColor];
+    headImg.layer.cornerRadius = 30;
+    headImg.layer.masksToBounds = YES;
+    [headerView addSubview:headImg];
+    
+    
+    UILabel *shopNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 40, 245, 30)];
+    shopNameLabel.font = [UIFont systemFontOfSize:20];
+    shopNameLabel.text = @"尚集镇小面之缘";
+    [headerView addSubview:shopNameLabel];
+    
+    UILabel *shopContentLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 70, 245, 30)];
+    shopContentLabel.font = [UIFont systemFontOfSize:16];
+    shopContentLabel.text = @"尚集镇小面之缘";
+    [headerView addSubview:shopContentLabel];
+    
+    UILabel *lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 110, 375, 1)];
+    lineLabel.backgroundColor = [UIColor whiteColor];
+    [headerView addSubview:lineLabel];
+    
+    UILabel *adLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, 120, 255, 20)];
+    adLabel.font = [UIFont systemFontOfSize:14];
+    adLabel.text = @"sasasdasd奥术大师大所奥术大师";
+    [headerView addSubview:adLabel];
+    
 }
 -(void)configFootView{
     UIView *footView = [[UIView alloc]initWithFrame:WDH_CGRectMake(0, 667 - FooterViewHight, 375, FooterViewHight)];

@@ -8,10 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LYTBackView : UIView
+
+@protocol LYTBackViewDelegate 
+@required
+
+-(void)touchBackView;
+
+@end
+
+
+
+@interface LYTBackView : UIView<LYTBackViewDelegate>
 @property(nonatomic,retain)UIView *dissView;
+@property(nonatomic,retain)id <LYTBackViewDelegate>delegate;
+
+//单例创建
++ (instancetype)shareSingle;
+
 //添加蒙板,并在蒙板上添加视图,topView为自己创建的蒙板上的视图
 +(void)showWithView:(id)topView;
 //视图和蒙板同时消失
 +(void)dissMiss;
+
+
 @end

@@ -173,14 +173,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     NSLog(@"CellBuyBtnClick---%ld",sender.tag);
     [self tanchuView];
     
-//    if (i % 2 == 0) {
-//        UIImageView *img = [[UIImageView alloc]initWithFrame:WDH_CGRectMake(100 , 100, 100, 200)];
-//        img.backgroundColor = [UIColor redColor];
-//        [LYTBackView showWithView:img];
-//    }else{
-//        [LYTBackView dissMiss];
-//    }
-//    i ++;
 }
 -(void)tanchuView{
     UIView *tanchuView = [[UIView alloc]initWithFrame:WDH_CGRectMake(20, 70, 335, 480)];

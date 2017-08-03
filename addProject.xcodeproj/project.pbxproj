@@ -13,6 +13,8 @@
 		9A15393C1F25860B00C20D44 /* addProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A15393A1F25860A00C20D44 /* addProject.xcdatamodeld */; };
 		9A15393E1F25860B00C20D44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A15393D1F25860B00C20D44 /* Assets.xcassets */; };
 		9A1539411F25860B00C20D44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A15393F1F25860B00C20D44 /* LaunchScreen.storyboard */; };
+		9A1642E61F31A9C000E361D4 /* LYTFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1642E51F31A9C000E361D4 /* LYTFMDB.m */; };
+		9A1642E91F31ACE800E361D4 /* LYTGoodsInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1642E81F31ACE800E361D4 /* LYTGoodsInfoModel.m */; };
 		9AC088961F307C00007AA17D /* LYTGoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC088951F307C00007AA17D /* LYTGoodsDetailCell.m */; };
 		9AD6B0B31F2ECB6300FAC207 /* LYTLifeTableCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0AE1F2ECB6300FAC207 /* LYTLifeTableCell1.m */; };
 		9AD6B0B41F2ECB6300FAC207 /* LYTLifeTableCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0B01F2ECB6300FAC207 /* LYTLifeTableCell2.m */; };
@@ -41,6 +43,10 @@
 		9A15393D1F25860B00C20D44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A1539401F25860B00C20D44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A1539421F25860B00C20D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A1642E41F31A9C000E361D4 /* LYTFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTFMDB.h; sourceTree = "<group>"; };
+		9A1642E51F31A9C000E361D4 /* LYTFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTFMDB.m; sourceTree = "<group>"; };
+		9A1642E71F31ACE800E361D4 /* LYTGoodsInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTGoodsInfoModel.h; sourceTree = "<group>"; };
+		9A1642E81F31ACE800E361D4 /* LYTGoodsInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTGoodsInfoModel.m; sourceTree = "<group>"; };
 		9AC088941F307C00007AA17D /* LYTGoodsDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTGoodsDetailCell.h; sourceTree = "<group>"; };
 		9AC088951F307C00007AA17D /* LYTGoodsDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTGoodsDetailCell.m; sourceTree = "<group>"; };
 		9AD6B0AD1F2ECB6300FAC207 /* LYTLifeTableCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTLifeTableCell1.h; sourceTree = "<group>"; };
@@ -214,6 +220,10 @@
 				9AD6B0D51F2ECC5E00FAC207 /* LYTBackView.m */,
 				9AD6B0D61F2ECC5E00FAC207 /* LYTPrivatelyToors.h */,
 				9AD6B0D71F2ECC5E00FAC207 /* LYTPrivatelyToors.m */,
+				9A1642E41F31A9C000E361D4 /* LYTFMDB.h */,
+				9A1642E51F31A9C000E361D4 /* LYTFMDB.m */,
+				9A1642E71F31ACE800E361D4 /* LYTGoodsInfoModel.h */,
+				9A1642E81F31ACE800E361D4 /* LYTGoodsInfoModel.m */,
 			);
 			path = "LYT私有封装";
 			sourceTree = "<group>";
@@ -374,12 +384,14 @@
 				9AD6B0BF1F2ECB9800FAC207 /* LYTMerchantShopCell2.m in Sources */,
 				9AD6B0E31F2ED05200FAC207 /* AppDelegate.m in Sources */,
 				9AD6B0B41F2ECB6300FAC207 /* LYTLifeTableCell2.m in Sources */,
+				9A1642E91F31ACE800E361D4 /* LYTGoodsInfoModel.m in Sources */,
 				9AD6B0B31F2ECB6300FAC207 /* LYTLifeTableCell1.m in Sources */,
 				9AD6B0B51F2ECB6300FAC207 /* LYTLifeTableVC.m in Sources */,
 				9AD6B0D11F2ECC0300FAC207 /* LYTSearchVC.m in Sources */,
 				9AD6B0C31F2ECBC600FAC207 /* ShowVC.m in Sources */,
 				9AC088961F307C00007AA17D /* LYTGoodsDetailCell.m in Sources */,
 				9AD6B0BE1F2ECB9800FAC207 /* LYTMerchantShopCell1.m in Sources */,
+				9A1642E61F31A9C000E361D4 /* LYTFMDB.m in Sources */,
 				9AD6B0CD1F2ECBE300FAC207 /* LYTSortVC.m in Sources */,
 				9AD6B0D91F2ECC5E00FAC207 /* LYTPrivatelyToors.m in Sources */,
 				9AD6B0DD1F2ECD5800FAC207 /* LYTGoodsDetailVC.m in Sources */,

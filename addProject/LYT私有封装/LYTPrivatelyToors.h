@@ -13,5 +13,6 @@
 //加入购物车动画
 +(void)animationWithView:(UIView *)view startCenter:(CGPoint)start finishCenter:(CGPoint)finish;
 
+//跑马灯动画
 +(void)addMarqueeAnimationWithView:(UIView *)view;
 @end

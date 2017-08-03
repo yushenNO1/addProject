@@ -6,7 +6,7 @@ pod 'SVProgressHUD','~> 2.0.2'
 pod 'SDCycleScrollView', '~> 1.64'
 #pod 'BaiduMapKit', '~> 3.2.1'
 
-
+pod 'FMDB', '~> 2.6'
 
 # U-Share SDK UI模块（分享面板，建议添加）
 #    pod ‘UMengUShare/UI’

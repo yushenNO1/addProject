@@ -6,8 +6,8 @@
 //  Copyright © 2017年 神廷. All rights reserved.
 //
 
-#define FooterHight             50              //tableView尾部高度
-
+#define FooterHight                 50              //tableView尾部高度
+#define ScrollContentOffSet         30              //Scroll偏移量的比率
 
 
 
@@ -18,12 +18,12 @@
 static NSString *DefaultCell        = @"DefaultCell";
 static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 
-@interface LYTGoodsDetailVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface LYTGoodsDetailVC ()<UITableViewDelegate,UITableViewDataSource,LYTBackViewDelegate>
 @property(nonatomic,retain)UIView           *statusBarView;     //隐藏导航条和状态栏
 @property(nonatomic,retain)UIView           *navigationView;    //隐藏导航条
 @property(nonatomic,retain)UILabel          *navigationLabel;   //隐藏导航条标题
 @property(nonatomic,retain)UIButton         *backBtn;           //返回按钮
-//@property(nonatomic,retain)UIScrollView     *hiddenScroll;      //隐藏的Scroll
+@property(nonatomic,retain)UIView           *popView;           //弹出视图
 @property(nonatomic,retain)UITableView *LYTGoodsDetailTable;
 
 
@@ -41,6 +41,15 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     }
     return _LYTGoodsDetailTable;
 }
+
+- (UIView *)popView {
+    if (!_popView) {
+        _popView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight/2.0f)];
+        _popView.backgroundColor = [UIColor colorWithRed:1.000 green:0.988 blue:0.960 alpha:1.000];
+    }
+    return _popView;
+}
+
 
 - (void)viewWillLayoutSubviews
 {
@@ -81,6 +90,10 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     [self configHiddenScroll];
     //添加尾部购买按钮
     [self configFooter];
+    
+    
+    LYTBackView *backView = [LYTBackView shareSingle];
+    backView.delegate = self;
     
 }
 -(void)customNavigation{
@@ -189,13 +202,13 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
 //    NSLog(@"scrollViewDidScroll--%f",scrollView.contentOffset.y);
     if (scrollView == self.LYTGoodsDetailTable) {
-        _statusBarView.backgroundColor=[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:scrollView.contentOffset.y/(100)];
-        _navigationView.backgroundColor=[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:scrollView.contentOffset.y/(100)];
-        _navigationLabel.alpha = scrollView.contentOffset.y/(100);
+        _statusBarView.backgroundColor=[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:scrollView.contentOffset.y/(ScrollContentOffSet)];
+        _navigationView.backgroundColor=[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:scrollView.contentOffset.y/(ScrollContentOffSet)];
+        _navigationLabel.alpha = scrollView.contentOffset.y/(ScrollContentOffSet);
         
         
-        CGFloat colorF_up = scrollView.contentOffset.y + 155;
-        CGFloat colorF_down = 255 - scrollView.contentOffset.y;
+        CGFloat colorF_up = scrollView.contentOffset.y * 3 + 153 - ScrollContentOffSet ;
+        CGFloat colorF_down = 255 - scrollView.contentOffset.y * 3 ;
         _backBtn.backgroundColor = [UIColor colorWithRed:colorF_up/255.0 green:colorF_up/255.0 blue:colorF_up/255.0 alpha:1];
         [_backBtn setTitleColor:[UIColor colorWithRed:colorF_down/255.0 green:colorF_down/255.0 blue:colorF_down/255.0 alpha:1] forState:UIControlStateNormal];
 //        NSLog(@"----tableView的内容高度------%@",NSStringFromCGSize(_LYTGoodsDetailTable.contentSize) );
@@ -204,7 +217,7 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     }
 }
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
-//    NSLog(@"----scrollViewWillBeginDecelerating------%f",scrollView.contentOffset.y   );
+    NSLog(@"----scrollViewWillBeginDecelerating------%f",scrollView.contentOffset.y   );
     if (scrollView.contentOffset.y + _LYTGoodsDetailTable.frame.size.height - scrollView.contentSize.height   > 50.f){
         //滑到底部加载更多
         NSLog(@"滑到底部加载图片");
@@ -237,7 +250,7 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     }
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return 5;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
@@ -272,29 +285,33 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
         //点击选择商品属性
         [self open];
     }else{
-        [self close];
+//        [self close];
     }
 }
 
-
+#pragma mark      ------------弹出视图------------
 -(void)open{
     [UIView animateWithDuration:0.2 animations:^{
         self.view.layer.transform = [self firstStepTransform];
+        
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.3 animations:^{
             self.view.layer.transform = [self secondStepTransform];
+            [LYTBackView showWithView:self.popView];
+            self.popView.transform = CGAffineTransformTranslate(self.popView.transform, 0, -kScreenHeight / 2.0f);
+            
         }];
     }];
 }
 -(void)close{
-    
     [UIView animateWithDuration:0.3 animations:^{
         self.view.layer.transform = [self firstStepTransform];
+        self.popView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.2 animations:^{
             self.view.layer.transform = CATransform3DIdentity;
         } completion:^(BOOL finished) {
-            
+            self.popView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight/2.0f);
         }];
     }];
 }
@@ -317,4 +334,10 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     transform = CATransform3DScale(transform, 0.8, 0.8, 1.0);
     return transform;
 }
+
+-(void)touchBackView{
+    NSLog(@"zoubuzou ");
+    [self close];
+}
+
 @end
