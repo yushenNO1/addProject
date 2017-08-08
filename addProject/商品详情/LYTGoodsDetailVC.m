@@ -6,9 +6,9 @@
 //  Copyright © 2017年 神廷. All rights reserved.
 //
 
-#define FooterHight                 50              //tableView尾部高度
-#define ScrollContentOffSet         30              //Scroll偏移量的比率
-
+#define FooterHight                 50                              //tableView尾部高度
+#define ScrollContentOffSet         30                              //Scroll偏移量的比率
+#define SpecScrollHight             kScreenHeight/2.0f - 100         //规格上ScrollView高度
 
 
 
@@ -20,7 +20,11 @@
 static NSString *DefaultCell        = @"DefaultCell";
 static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 
-@interface LYTGoodsDetailVC ()<UITableViewDelegate,UITableViewDataSource,LYTBackViewDelegate>
+@interface LYTGoodsDetailVC ()<UITableViewDelegate,UITableViewDataSource,LYTBackViewDelegate,LYTSudokuDelegate>
+{
+    UIButton * jianBtn;
+    UILabel * countLabel;
+}
 @property(nonatomic,retain)UIView           *statusBarView;     //隐藏导航条和状态栏
 @property(nonatomic,retain)UIView           *navigationView;    //隐藏导航条
 @property(nonatomic,retain)UILabel          *navigationLabel;   //隐藏导航条标题
@@ -46,29 +50,93 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 
 - (UIView *)popView {
     if (!_popView) {
-        _popView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight/2.0f)];
+        _popView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth,  SpecScrollHight + 200)];
         _popView.backgroundColor = [UIColor colorWithRed:1.000 green:0.988 blue:0.960 alpha:1.000];
         UIWindow *window = [[[UIApplication sharedApplication]delegate]window];
         [window addSubview:_popView];
         
+        UIImageView *headerImg = [[UIImageView alloc]initWithFrame:CGRectMake(10, -10, 60, 60)];
+        headerImg.layer.cornerRadius = 5;
+        headerImg.layer.masksToBounds = YES;
+        headerImg.backgroundColor = [UIColor redColor];
+        [_popView addSubview:headerImg];
+        
+        
+        
+        
+        UIScrollView *scroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0 , 60, kScreenWidth,  SpecScrollHight + 100)];
+        [_popView addSubview:scroll];
+        
         NSArray * btnTitleArr = @[@"asdasdas",@"奥术大师",@"按时",@"打算额",@"按时若翁群请问",@"恶趣味奥所多",@"我去玩才多少",@"七位数多",@"请问",@"其实规范"];
         __block float frameY = 0;
+        NSArray *defaultSelectArr = @[@"1",@"5",@"2"];
         for (int i = 0; i < 2; i ++ ) {
-            LYTSudokuView *sudokuView = [[LYTSudokuView alloc]initWithFrame:CGRectMake(0, frameY, kScreenWidth, kScreenHeight/2.0f)];
+            LYTSudokuView *sudokuView = [[LYTSudokuView alloc]initWithFrame:CGRectMake(0, frameY, kScreenWidth, SpecScrollHight)];
             //        sudokuView.selectType = LYTSudokuBtnSelectMultiple;
-            sudokuView.backgroundColor = [UIColor greenColor];
-            [sudokuView configViewWithDataArr:btnTitleArr];
+            [sudokuView configViewWithDataArr:btnTitleArr selectIndex:[defaultSelectArr[i] integerValue]];
             sudokuView.selectIndex = i;
-            __block LYTSudokuView *welfSelf = sudokuView;
-            sudokuView.frame_hight = ^(float hight){
-                NSLog(@"sudokuView.frame_hight---%f",hight);
-                welfSelf.frame = CGRectMake(0, frameY, kScreenWidth, hight);
-                frameY = frameY + hight;
-            };
-            [_popView addSubview:sudokuView];
+            sudokuView.delegate = self;
+            NSLog(@"sudokuView.viewHight----%ld",sudokuView.viewHight);
+            sudokuView.frame = CGRectMake(0, frameY, kScreenWidth, sudokuView.viewHight);
+            frameY = frameY + sudokuView.viewHight;
+
+            [scroll addSubview:sudokuView];
+        }
+        scroll.contentSize = CGSizeMake(kScreenWidth, frameY + 10 + 40);
+        
+        UILabel *countTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, frameY + 10, 80, 20)];
+        countTitleLabel.text = @"购买数量";
+        countTitleLabel.font = [UIFont systemFontOfSize:14];
+        [scroll addSubview:countTitleLabel];
+        
+        // 加减+中间label
+        jianBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        jianBtn.frame = WDH_CGRectMake(270, frameY + 5, 30, 30);
+        jianBtn.layer.cornerRadius = 15;
+        jianBtn.layer.masksToBounds = YES;
+        jianBtn.titleLabel.font = [UIFont systemFontOfSize:18];
+        [jianBtn setTitle:@"-" forState:UIControlStateNormal];
+        [scroll addSubview:jianBtn];
+        jianBtn.tag = 1094;
+        [jianBtn addTarget:self action:@selector(jiaJianBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        countLabel = [[UILabel alloc]initWithFrame:WDH_CGRectMake(300, frameY + 5, 35, 30)];
+        countLabel.text = @"2";
+        countLabel.font = [UIFont systemFontOfSize:18];
+        countLabel.textAlignment = NSTextAlignmentCenter;
+        [scroll addSubview:countLabel];
+        
+        //判断减号颜色
+        if ([countLabel.text intValue] > 1) {
+            jianBtn.backgroundColor = [UIColor colorWithRed:255/255.0 green:89/255.0 blue:119/255.0 alpha:1];
+        }else{
+            jianBtn.backgroundColor = [UIColor colorWithRed:215/255.0 green:215/255.0 blue:215/255.0 alpha:1];
         }
         
+        
+        
+        
+        UIButton *jiaBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        jiaBtn.frame = WDH_CGRectMake(335, frameY + 5, 30, 30);
+        jiaBtn.layer.cornerRadius = 15;
+        jiaBtn.layer.masksToBounds = YES;
+        jiaBtn.titleLabel.font = [UIFont systemFontOfSize:18];
+        jiaBtn.backgroundColor = [UIColor colorWithRed:255/255.0 green:89/255.0 blue:119/255.0 alpha:1];
+        [jiaBtn setTitle:@"+" forState:UIControlStateNormal];
+        [scroll addSubview:jiaBtn];
+        jiaBtn.tag = 2;
+        [jiaBtn addTarget:self action:@selector(jiaJianBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
+    
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, SpecScrollHight + 160, kScreenWidth, 40);
+    [btn setTitle:@"确定" forState:UIControlStateNormal];
+    btn.backgroundColor = [UIColor colorWithRed:253/255.0  green:70/255.0  blue:103/255.0 alpha:1];
+    [_popView addSubview:btn];
+    
+    
     return _popView;
 }
 
@@ -150,7 +218,7 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 }
 //头部视图
 -(void)configHeaderView{
-    UIScrollView *scroll = [[UIScrollView alloc]initWithFrame:WDH_CGRectMake(0, 0, kScreenWidth, kScreenWidth)];
+    UIScrollView *scroll = [[UIScrollView alloc]initWithFrame:WDH_CGRectMake(0, 0, 375, 375)];
     scroll.contentSize = CGSizeMake(kScreenWidth * 3, kScreenWidth);
     scroll.pagingEnabled = YES;
     scroll.backgroundColor = [UIColor redColor];
@@ -164,7 +232,7 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 }
 //尾部视图
 -(void)configFooterView{
-    UIView *footerView = [[UIView alloc]initWithFrame:WDH_CGRectMake(0, 0, kScreenWidth, FooterHight)];
+    UIView *footerView = [[UIView alloc]initWithFrame:WDH_CGRectMake(0, 0, 375, FooterHight)];
     footerView.backgroundColor = [UIColor redColor];
     UILabel *label = [[UILabel alloc]initWithFrame:footerView.frame];
     label.text = @"上拉查看商品详情";
@@ -174,11 +242,11 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 }
 //加载更多时切换Scroll
 -(void)configHiddenScroll{
-    UIScrollView *hiddenScroll = [[UIScrollView alloc]initWithFrame:WDH_CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight - 50)];
+    UIScrollView *hiddenScroll = [[UIScrollView alloc]initWithFrame:WDH_CGRectMake(0, 667, 375, 667 - 50)];
     hiddenScroll.backgroundColor = [UIColor redColor];
     hiddenScroll.tag = 8888;
     hiddenScroll.delegate = self;
-    UILabel *label = [[UILabel alloc]initWithFrame:WDH_CGRectMake(0, 0 , kScreenWidth, 64)];
+    UILabel *label = [[UILabel alloc]initWithFrame:WDH_CGRectMake(0, 0 , 375, 64)];
     label.text = @"下拉返回商品";
     label.textAlignment = NSTextAlignmentCenter;
     [hiddenScroll addSubview:label];
@@ -188,7 +256,7 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 
 //底部确定按钮
 -(void)configFooter{
-    UIView *footerView = [[UIView alloc]initWithFrame:WDH_CGRectMake(0, 667 - FooterHight, kScreenWidth, FooterHight)];
+    UIView *footerView = [[UIView alloc]initWithFrame:WDH_CGRectMake(0, 667 - FooterHight, 375, FooterHight)];
     footerView.backgroundColor = [UIColor greenColor];
     
     
@@ -246,8 +314,8 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
         UIScrollView *scroll = [self.view viewWithTag:8888];
         if (scrollView == _LYTGoodsDetailTable) {
             [UIView animateWithDuration:1 animations:^{
-                scrollView.frame = WDH_CGRectMake(0, -kScreenHeight, kScreenWidth, kScreenHeight);
-                scroll.frame = WDH_CGRectMake(0, 0, kScreenWidth, kScreenHeight - 50 ) ;
+                scrollView.frame = WDH_CGRectMake(0, -667, 375, 667);
+                scroll.frame = WDH_CGRectMake(0, 0, 375, 667 - 50 ) ;
             }];
         }
     }
@@ -257,8 +325,8 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
         NSLog(@"滑到顶部更新");
         if (scrollView.tag == 8888){
             [UIView animateWithDuration:1 animations:^{
-                _LYTGoodsDetailTable.frame = WDH_CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-                scrollView.frame = WDH_CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight - 50 - 64) ;
+                _LYTGoodsDetailTable.frame = WDH_CGRectMake(0, 0, 375, 667);
+                scrollView.frame = WDH_CGRectMake(0, 667, 375, 667 - 50 - 64) ;
             }];
         }
     }
@@ -320,7 +388,7 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
         [UIView animateWithDuration:0.3 animations:^{
             self.view.layer.transform = [self secondStepTransform];
             [LYTBackView showWithView:[UIView new]];
-            self.popView.frame = CGRectMake(0, kScreenHeight/2.0f, kScreenWidth, kScreenHeight/2.0f);
+            self.popView.frame = CGRectMake(0, SpecScrollHight, kScreenWidth, SpecScrollHight + 200);
 //            self.popView.transform = CGAffineTransformTranslate(self.popView.transform, 0, -kScreenHeight / 2.0f);
             
         }];
@@ -329,7 +397,7 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 -(void)close{
     [UIView animateWithDuration:0.3 animations:^{
         self.view.layer.transform = [self firstStepTransform];
-        self.popView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight/2.0f);
+        self.popView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, SpecScrollHight  + 200 );
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.2 animations:^{
             self.view.layer.transform = CATransform3DIdentity;
@@ -363,5 +431,40 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     NSLog(@"zoubuzou ");
     [self close];
 }
+//规格上加减按钮点击
+-(void)clickBtnIndex:(NSInteger)index WithBtnInfo:(NSString *)info changeView:(LYTSudokuView *)sudokuView{
+    NSLog(@"clickBtnIndex----%ld   WithBtnInfo----%@",index,info);
+    
+    NSArray *routeArr = @[@"1-5-3",
+                          @"1-5-4",
+                          @"1-5-5",
+                          @"1-3-3",
+                          @"1-2-3",
+                          @"1-1-3",
+                          @"1-3-6"];
+    
+}
+//规格上加减按钮点击
+-(void)jiaJianBtnClick:(UIButton *)sender{
+    NSLog(@"jiaJianBtnClick----%ld",sender.tag);
+    
+    int count = [countLabel.text intValue];
+    if (sender.tag == 1094) {
+        count --;
+        //处理减号事件
+        if (count >= 2) {
+            jianBtn.backgroundColor = [UIColor colorWithRed:255/255.0 green:89/255.0 blue:119/255.0 alpha:1];
+        }else{
+            jianBtn.backgroundColor = [UIColor colorWithRed:215/255.0 green:215/255.0 blue:215/255.0 alpha:1];
+            count = 1;
+        }
+    }else{
+        jianBtn.backgroundColor = [UIColor colorWithRed:255/255.0 green:89/255.0 blue:119/255.0 alpha:1];
+        count ++;
+        //处理加号事件
+    }
+    countLabel.text = [NSString stringWithFormat:@"%d",count];
+}
+
 
 @end

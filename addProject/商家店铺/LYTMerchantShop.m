@@ -43,11 +43,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[LYTMerchantShopCell2 class] forCellWithReuseIdentifier:MerchantShopCell2];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(begainFullScreen) name:UIWindowDidBecomeVisibleNotification object:nil];//进入全屏
 }
--(void)begainFullScreen{
-    NSLog(@"进入全屏走不走");
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

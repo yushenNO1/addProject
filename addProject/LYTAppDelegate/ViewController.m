@@ -14,7 +14,7 @@
 #import "LYTSortVC.h"                               //子视图控制器
 #import "LYTSearchVC.h"                             //搜索框
 #import "LYTGoodsDetailVC.h"                        //商品详情页面
-
+#import "LYTLocalGoodsDetailVC.h"                   //本地商品详情页面
 
 
 @interface ViewController ()<UIViewControllerPreviewingDelegate>
@@ -86,6 +86,14 @@
     [btn7 addTarget:self action:@selector(btn7Click) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn7];
     
+    
+    
+    UIButton *btn8 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn8.frame = CGRectMake(10, 280, 100, 20);
+    btn8.backgroundColor = [UIColor redColor];
+    [btn8 setTitle:@"本地商品详情" forState:UIControlStateNormal];
+    [btn8 addTarget:self action:@selector(btn8Click) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn8];
     
 }
 -(void)btn1Click{
@@ -201,4 +209,10 @@
     LYTGoodsDetailVC *vc = [[LYTGoodsDetailVC alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+-(void)btn8Click{
+    LYTLocalGoodsDetailVC *vc = [[LYTLocalGoodsDetailVC alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end

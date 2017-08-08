@@ -33,6 +33,11 @@
 		9AD6B0DD1F2ECD5800FAC207 /* LYTGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0DC1F2ECD5800FAC207 /* LYTGoodsDetailVC.m */; };
 		9AD6B0E21F2ED05200FAC207 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0DE1F2ED05200FAC207 /* ViewController.m */; };
 		9AD6B0E31F2ED05200FAC207 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0E01F2ED05200FAC207 /* AppDelegate.m */; };
+		9AF0B1BA1F380C13006B67DA /* LYTLocalGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF0B1B91F380C13006B67DA /* LYTLocalGoodsDetailVC.m */; };
+		9AF0B1BD1F38450C006B67DA /* LYTLocalGoodsDetailCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF0B1BC1F38450C006B67DA /* LYTLocalGoodsDetailCell1.m */; };
+		9AF0B1C01F384811006B67DA /* LYTLocalGoodsDetailCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF0B1BF1F384811006B67DA /* LYTLocalGoodsDetailCell2.m */; };
+		9AF0B1C31F384DC3006B67DA /* LYTLocalGoodsDetailCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF0B1C21F384DC3006B67DA /* LYTLocalGoodsDetailCell3.m */; };
+		9AF0B1C61F3852FF006B67DA /* LYTLocalGoodsDetailCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF0B1C51F3852FF006B67DA /* LYTLocalGoodsDetailCell4.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +91,16 @@
 		9AD6B0E01F2ED05200FAC207 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9AD6B0E11F2ED05200FAC207 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9AD6B0E41F2ED6FF00FAC207 /* addProjectHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = addProjectHeader.h; sourceTree = "<group>"; };
+		9AF0B1B81F380C13006B67DA /* LYTLocalGoodsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTLocalGoodsDetailVC.h; sourceTree = "<group>"; };
+		9AF0B1B91F380C13006B67DA /* LYTLocalGoodsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTLocalGoodsDetailVC.m; sourceTree = "<group>"; };
+		9AF0B1BB1F38450C006B67DA /* LYTLocalGoodsDetailCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTLocalGoodsDetailCell1.h; sourceTree = "<group>"; };
+		9AF0B1BC1F38450C006B67DA /* LYTLocalGoodsDetailCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTLocalGoodsDetailCell1.m; sourceTree = "<group>"; };
+		9AF0B1BE1F384811006B67DA /* LYTLocalGoodsDetailCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTLocalGoodsDetailCell2.h; sourceTree = "<group>"; };
+		9AF0B1BF1F384811006B67DA /* LYTLocalGoodsDetailCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTLocalGoodsDetailCell2.m; sourceTree = "<group>"; };
+		9AF0B1C11F384DC3006B67DA /* LYTLocalGoodsDetailCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTLocalGoodsDetailCell3.h; sourceTree = "<group>"; };
+		9AF0B1C21F384DC3006B67DA /* LYTLocalGoodsDetailCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTLocalGoodsDetailCell3.m; sourceTree = "<group>"; };
+		9AF0B1C41F3852FF006B67DA /* LYTLocalGoodsDetailCell4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTLocalGoodsDetailCell4.h; sourceTree = "<group>"; };
+		9AF0B1C51F3852FF006B67DA /* LYTLocalGoodsDetailCell4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTLocalGoodsDetailCell4.m; sourceTree = "<group>"; };
 		B7B62C36A7C895C2227A0E19 /* Pods-addProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-addProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-addProject/Pods-addProject.debug.xcconfig"; sourceTree = "<group>"; };
 		CAA9D431B305E3D1E0FD7B15 /* libPods-addProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-addProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,6 +142,7 @@
 				9AD6B0DA1F2ECD1B00FAC207 /* LYTAppDelegate */,
 				9A8647781F32FE6000480905 /* 商品规格 */,
 				9AD6B0D21F2ECC2000FAC207 /* 商品详情 */,
+				9AF0B1B71F380BCE006B67DA /* 本地商品详情 */,
 				9AD6B0CE1F2ECC0300FAC207 /* 搜索框 */,
 				9AD6B0C41F2ECBE300FAC207 /* 子视图控制器 */,
 				9AD6B0C01F2ECBC600FAC207 /* 3DTouch */,
@@ -253,6 +269,23 @@
 				9A1539371F25860A00C20D44 /* Main.storyboard */,
 			);
 			path = LYTAppDelegate;
+			sourceTree = "<group>";
+		};
+		9AF0B1B71F380BCE006B67DA /* 本地商品详情 */ = {
+			isa = PBXGroup;
+			children = (
+				9AF0B1B81F380C13006B67DA /* LYTLocalGoodsDetailVC.h */,
+				9AF0B1B91F380C13006B67DA /* LYTLocalGoodsDetailVC.m */,
+				9AF0B1BB1F38450C006B67DA /* LYTLocalGoodsDetailCell1.h */,
+				9AF0B1BC1F38450C006B67DA /* LYTLocalGoodsDetailCell1.m */,
+				9AF0B1BE1F384811006B67DA /* LYTLocalGoodsDetailCell2.h */,
+				9AF0B1BF1F384811006B67DA /* LYTLocalGoodsDetailCell2.m */,
+				9AF0B1C11F384DC3006B67DA /* LYTLocalGoodsDetailCell3.h */,
+				9AF0B1C21F384DC3006B67DA /* LYTLocalGoodsDetailCell3.m */,
+				9AF0B1C41F3852FF006B67DA /* LYTLocalGoodsDetailCell4.h */,
+				9AF0B1C51F3852FF006B67DA /* LYTLocalGoodsDetailCell4.m */,
+			);
+			path = "本地商品详情";
 			sourceTree = "<group>";
 		};
 		DC64B880C9498645C88DB58B /* Frameworks */ = {
@@ -395,14 +428,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AF0B1C61F3852FF006B67DA /* LYTLocalGoodsDetailCell4.m in Sources */,
 				9AD6B0E21F2ED05200FAC207 /* ViewController.m in Sources */,
 				9AD6B0BF1F2ECB9800FAC207 /* LYTMerchantShopCell2.m in Sources */,
 				9AD6B0E31F2ED05200FAC207 /* AppDelegate.m in Sources */,
+				9AF0B1C01F384811006B67DA /* LYTLocalGoodsDetailCell2.m in Sources */,
 				9AD6B0B41F2ECB6300FAC207 /* LYTLifeTableCell2.m in Sources */,
 				9A1642E91F31ACE800E361D4 /* LYTGoodsInfoModel.m in Sources */,
+				9AF0B1BA1F380C13006B67DA /* LYTLocalGoodsDetailVC.m in Sources */,
 				9AD6B0B31F2ECB6300FAC207 /* LYTLifeTableCell1.m in Sources */,
 				9AD6B0B51F2ECB6300FAC207 /* LYTLifeTableVC.m in Sources */,
 				9AD6B0D11F2ECC0300FAC207 /* LYTSearchVC.m in Sources */,
+				9AF0B1BD1F38450C006B67DA /* LYTLocalGoodsDetailCell1.m in Sources */,
+				9AF0B1C31F384DC3006B67DA /* LYTLocalGoodsDetailCell3.m in Sources */,
 				9AD6B0C31F2ECBC600FAC207 /* ShowVC.m in Sources */,
 				9AC088961F307C00007AA17D /* LYTGoodsDetailCell.m in Sources */,
 				9AD6B0BE1F2ECB9800FAC207 /* LYTMerchantShopCell1.m in Sources */,

@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class LYTSudokuView;
+
+@protocol LYTSudokuDelegate 
+
+-(void)clickBtnIndex:(NSInteger)index WithBtnInfo:(NSString *)info changeView:(LYTSudokuView *)sudokuView;
+
+@end
+
 
 typedef enum : NSUInteger {
     LYTSudokuBtnSelectSingle,
@@ -14,16 +22,21 @@ typedef enum : NSUInteger {
 } LYTSudokuBtnSelectType;
 
 
-@interface LYTSudokuView : UIView
+@interface LYTSudokuView : UIView<LYTSudokuDelegate>
 
 //第几块
 @property(nonatomic,assign)NSInteger selectIndex;
-
+//显示view高度
+@property(nonatomic,assign)NSInteger viewHight;
+//存储路径数组
+@property(nonatomic,retain)NSArray *routeArr;
 
 @property(nonatomic,assign)LYTSudokuBtnSelectType selectType;
-@property(nonatomic,copy)void (^frame_hight)(float hight);
 
 
--(void)configViewWithDataArr:(NSArray *)arr;
+@property(nonatomic,retain)id <LYTSudokuDelegate>delegate;
+
+
+-(void)configViewWithDataArr:(NSArray *)arr selectIndex:(NSInteger)index;
 
 @end
