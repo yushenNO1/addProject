@@ -53,6 +53,8 @@
         _goBuy = [UIButton buttonWithType:UIButtonTypeCustom];
         _goBuy.frame = CGRectMake(375 - 100, 10, 90, 30);
         _goBuy.backgroundColor = [UIColor colorWithRed:255/255.0 green:64/255.0 blue:98/255.0 alpha:1];
+        _goBuy.layer.cornerRadius = 5;
+        _goBuy.layer.masksToBounds = YES;
         [_goBuy setTitle:@"立即购买" forState:UIControlStateNormal];
         _goBuy.titleLabel.font = [UIFont systemFontOfSize:14];
     }

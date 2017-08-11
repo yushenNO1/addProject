@@ -116,7 +116,6 @@ static BOOL isUp = YES;
     [self.navigationController.navigationBar addSubview:_statusBarView];
     
     
-    
 }
 -(void)configChildVC{
     //添加子视图
@@ -378,6 +377,8 @@ static BOOL isUp = YES;
         }
     }];
 }
+
+
 
 
 @end

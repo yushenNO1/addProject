@@ -11,6 +11,7 @@
 #import "LYTLifeTableCell2.h"
 #import "LYTPrivatelyToors.h"
 
+#import "LYTLifeShopListModel.h"            //商家列表信息model
 
 @interface btnView : UIView
 @property(nonatomic,retain)UIButton     *clickBtn;
@@ -59,9 +60,20 @@
 
 @interface LYTLifeTableVC ()
 @property(nonatomic,retain)UIView           *statusBarView;     //隐藏导航条和状态栏
+@property(nonatomic,retain)NSMutableArray   *lifeShopListArr;   //商家信息列表数组
 @end
 
 @implementation LYTLifeTableVC
+
+-(NSMutableArray *)lifeShopListArr{
+    if (!_lifeShopListArr) {
+        _lifeShopListArr = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _lifeShopListArr;
+}
+
+
+
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
@@ -101,6 +113,8 @@
     [self configHeaderView];
     
     [self configSeachVC];
+    
+    [self requestLifeShopList];
 }
 -(void)configHeaderView{
     UIView *headerView = [[UIView alloc]initWithFrame:WDH_CGRectMake(0, 0, 375, 250 + 64 )];
@@ -175,9 +189,11 @@
     if (section == 0) {
         return 2;
     }else if (section == 1){
-        return 4;
+        NSLog(@"self.lifeShopListArr.count ----%ld",self.lifeShopListArr.count );
+        return self.lifeShopListArr.count + 1;
     }else{
-        return 4;
+        
+        return 0 ;
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -231,6 +247,14 @@
         }else{
             LYTLifeTableCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"LYTLifeTableCell2" forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            NSLog(@"indexPath.row---%ld  self.lifeShopListArr---%ld",indexPath.row,self.lifeShopListArr.count);
+            LYTLifeShopListModel *model = self.lifeShopListArr[indexPath.row - 1];
+            cell.titleLabel.text = model.shopName;
+            cell.distanceLabel.text = model.distanceString;
+            cell.soldLabel.text = [NSString stringWithFormat:@"已售%ld",model.saleCount];
+            [cell.img sd_setImageWithURL:[NSURL URLWithString:model.cover]];
+            
             return cell;
         }
 
@@ -254,5 +278,26 @@
 -(void)cellBtnClick:(UIButton *)sender{
     NSLog(@"cellBtn点击按钮---%ld",sender.tag);
 }
+
+
+
+
+#pragma mark -------NetWorkRequest----------
+//商家信息列表
+-(void)requestLifeShopList{
+    [WDHRequest requestAllListWith:@"http://192.168.0.196:8080/api/v1/life/shop/list?areaId=3" completeWithBlock:^(NSDictionary *responseObject) {
+        NSLog(@"商家信息列表-------%@",responseObject);
+        NSArray *arr =  responseObject[@"data"][@"localShops"];
+        for (NSDictionary *dic in arr) {
+            LYTLifeShopListModel *model = [[LYTLifeShopListModel alloc]initWithDictionary:dic];
+            [self.lifeShopListArr addObject:model];
+        }
+        [self.tableView reloadData];
+    } WithError:^(NSString *errorStr) {
+        NSLog(@"商家信息列表失败-------%@",errorStr);
+    }];
+}
+
+
 
 @end

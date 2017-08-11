@@ -15,7 +15,7 @@
 #import "LYTSearchVC.h"                             //搜索框
 #import "LYTGoodsDetailVC.h"                        //商品详情页面
 #import "LYTLocalGoodsDetailVC.h"                   //本地商品详情页面
-
+#import "LYTLocalOrderList.h"                       //订单列表
 
 @interface ViewController ()<UIViewControllerPreviewingDelegate>
 
@@ -94,6 +94,14 @@
     [btn8 setTitle:@"本地商品详情" forState:UIControlStateNormal];
     [btn8 addTarget:self action:@selector(btn8Click) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn8];
+    
+    
+    UIButton *btn9 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn9.frame = CGRectMake(10, 310, 100, 20);
+    btn9.backgroundColor = [UIColor redColor];
+    [btn9 setTitle:@"订单列表" forState:UIControlStateNormal];
+    [btn9 addTarget:self action:@selector(btn9Click) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn9];
     
 }
 -(void)btn1Click{
@@ -215,4 +223,8 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+-(void)btn9Click{
+    LYTLocalOrderList *vc = [[LYTLocalOrderList alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

@@ -13,7 +13,7 @@
 @interface LYTSudokuBtn : UIButton
 
 @property(nonatomic,assign)BOOL LYTIsSelect;
-
+@property(nonatomic,assign)NSInteger btnId;
 @end
 @implementation LYTSudokuBtn
 
@@ -57,7 +57,10 @@
     return self;
 }
 
--(void)configViewWithDataArr:(NSArray *)arr selectIndex:(NSInteger)index{
+-(void)configViewWithDataArr:(NSArray *)arr DataIdArr:(NSArray *)idArr selectIndex:(NSInteger)index{
+    
+    
+    
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 200, 20)];
     titleLabel.text = @"标题";
     titleLabel.font = [UIFont systemFontOfSize:18];
@@ -70,10 +73,11 @@
         LYTSudokuBtn *btn = [LYTSudokuBtn buttonWithType:UIButtonTypeCustom];
         [btn setTitle:arr[i] forState:UIControlStateNormal];
         btn.tag = i;
+        btn.btnId = [idArr[i] integerValue];
         [btn addTarget: self action:@selector(LYTSudokuBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.btnArr addObject:btn];
         
-        if (index == i) {
+        if (index == [idArr[i] integerValue]) {
             btn.backgroundColor = [UIColor greenColor];
         }else{
             btn.backgroundColor = [UIColor grayColor];
@@ -118,6 +122,7 @@
             sender.backgroundColor = [UIColor grayColor];
         }
     }
+    self.selectId = sender.btnId;
     [self.delegate clickBtnIndex:self.selectIndex WithBtnInfo:sender.titleLabel.text changeView:self];
 }
 

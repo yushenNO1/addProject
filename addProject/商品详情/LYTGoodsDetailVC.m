@@ -7,7 +7,7 @@
 //
 
 #define FooterHight                 50                              //tableView尾部高度
-#define ScrollContentOffSet         30                              //Scroll偏移量的比率
+#define ScrollContentOffSet         10                              //Scroll偏移量的比率
 #define SpecScrollHight             kScreenHeight/2.0f - 100         //规格上ScrollView高度
 
 
@@ -25,18 +25,30 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     UIButton * jianBtn;
     UILabel * countLabel;
 }
-@property(nonatomic,retain)UIView           *statusBarView;     //隐藏导航条和状态栏
-@property(nonatomic,retain)UIView           *navigationView;    //隐藏导航条
-@property(nonatomic,retain)UILabel          *navigationLabel;   //隐藏导航条标题
-@property(nonatomic,retain)UIButton         *backBtn;           //返回按钮
-@property(nonatomic,retain)UIView           *popView;           //弹出视图
-@property(nonatomic,retain)UITableView *LYTGoodsDetailTable;
+@property(nonatomic,retain)UIView               *statusBarView;     //隐藏导航条和状态栏
+@property(nonatomic,retain)UIView               *navigationView;    //隐藏导航条
+@property(nonatomic,retain)UILabel              *navigationLabel;   //隐藏导航条标题
+@property(nonatomic,retain)UIButton             *backBtn;           //返回按钮
+@property(nonatomic,retain)UIView               *popView;           //弹出视图
+@property(nonatomic,retain)UITableView          *LYTGoodsDetailTable;
 
-
+@property(nonatomic,retain)NSMutableDictionary  *selectSpecTypeDic; //选择规格属性-外部显示
+@property(nonatomic,retain)NSMutableArray       *defaultSelectArr; //选择规格属性-重新出现时默认选择
 @end
 
 @implementation LYTGoodsDetailVC
-
+-(NSMutableArray *)defaultSelectArr{
+    if (!_defaultSelectArr) {
+        _defaultSelectArr = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _defaultSelectArr;
+}
+-(NSMutableDictionary *)selectSpecTypeDic{
+    if (!_selectSpecTypeDic) {
+        _selectSpecTypeDic = [[NSMutableDictionary alloc]initWithCapacity:0];
+    }
+    return _selectSpecTypeDic;
+}
 -(UITableView *)LYTGoodsDetailTable{
     if (!_LYTGoodsDetailTable) {
         _LYTGoodsDetailTable = [[UITableView alloc]initWithFrame:WDH_CGRectMake(0, 0, kScreenWidth, kScreenHeight ) style:UITableViewStylePlain];
@@ -68,12 +80,13 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
         [_popView addSubview:scroll];
         
         NSArray * btnTitleArr = @[@"asdasdas",@"奥术大师",@"按时",@"打算额",@"按时若翁群请问",@"恶趣味奥所多",@"我去玩才多少",@"七位数多",@"请问",@"其实规范"];
+        NSArray * btnIdArr = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10"];
         __block float frameY = 0;
-        NSArray *defaultSelectArr = @[@"1",@"5",@"2"];
+        
         for (int i = 0; i < 2; i ++ ) {
             LYTSudokuView *sudokuView = [[LYTSudokuView alloc]initWithFrame:CGRectMake(0, frameY, kScreenWidth, SpecScrollHight)];
             //        sudokuView.selectType = LYTSudokuBtnSelectMultiple;
-            [sudokuView configViewWithDataArr:btnTitleArr selectIndex:[defaultSelectArr[i] integerValue]];
+            [sudokuView configViewWithDataArr:btnTitleArr DataIdArr:btnIdArr selectIndex:[self.defaultSelectArr[i] integerValue]];
             sudokuView.selectIndex = i;
             sudokuView.delegate = self;
             NSLog(@"sudokuView.viewHight----%ld",sudokuView.viewHight);
@@ -134,6 +147,8 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     btn.frame = CGRectMake(0, SpecScrollHight + 160, kScreenWidth, 40);
     [btn setTitle:@"确定" forState:UIControlStateNormal];
     btn.backgroundColor = [UIColor colorWithRed:253/255.0  green:70/255.0  blue:103/255.0 alpha:1];
+    btn.tag = 1;
+    [btn addTarget:self action:@selector(popViewBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [_popView addSubview:btn];
     
     
@@ -167,6 +182,9 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    self.defaultSelectArr = [NSMutableArray arrayWithArray:@[@"1",@"5",@"2"]];
     
     [self.view addSubview:self.LYTGoodsDetailTable];
     
@@ -218,12 +236,12 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 }
 //头部视图
 -(void)configHeaderView{
-    UIScrollView *scroll = [[UIScrollView alloc]initWithFrame:WDH_CGRectMake(0, 0, 375, 375)];
+    UIScrollView *scroll = [[UIScrollView alloc]initWithFrame:WDH_CGRectMake(0, 0, 375, 475)];
     scroll.contentSize = CGSizeMake(kScreenWidth * 3, kScreenWidth);
     scroll.pagingEnabled = YES;
     scroll.backgroundColor = [UIColor redColor];
     for (int i = 0; i < 3; i ++) {
-        UIImageView *img = [[UIImageView alloc]initWithFrame:WDH_CGRectMake(375 * i, 0, 375, 375)];
+        UIImageView *img = [[UIImageView alloc]initWithFrame:WDH_CGRectMake(375 * i, 0, 375, 475)];
         [img sd_setImageWithURL:[NSURL URLWithString:@"http://img002.21cnimg.com/photos/album/20150702/m600/2D79154370E073A2BA3CD4D07868861D.jpeg"]];
         [scroll addSubview:img];
     }
@@ -290,15 +308,15 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    NSLog(@"scrollViewDidScroll--%f",scrollView.contentOffset.y);
+    NSLog(@"scrollViewDidScroll--%f",scrollView.contentOffset.y);
     if (scrollView == self.LYTGoodsDetailTable) {
         _statusBarView.backgroundColor=[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:scrollView.contentOffset.y/(ScrollContentOffSet)];
         _navigationView.backgroundColor=[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:scrollView.contentOffset.y/(ScrollContentOffSet)];
         _navigationLabel.alpha = scrollView.contentOffset.y/(ScrollContentOffSet);
         
         
-        CGFloat colorF_up = scrollView.contentOffset.y * 3 + 153 - ScrollContentOffSet ;
-        CGFloat colorF_down = 255 - scrollView.contentOffset.y * 3 ;
+        CGFloat colorF_up = scrollView.contentOffset.y * 10 + 153 - ScrollContentOffSet ;
+        CGFloat colorF_down = 255 - scrollView.contentOffset.y * 10 ;
         _backBtn.backgroundColor = [UIColor colorWithRed:colorF_up/255.0 green:colorF_up/255.0 blue:colorF_up/255.0 alpha:1];
         [_backBtn setTitleColor:[UIColor colorWithRed:colorF_down/255.0 green:colorF_down/255.0 blue:colorF_down/255.0 alpha:1] forState:UIControlStateNormal];
 //        NSLog(@"----tableView的内容高度------%@",NSStringFromCGSize(_LYTGoodsDetailTable.contentSize) );
@@ -340,7 +358,7 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     }
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 2;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
@@ -349,6 +367,9 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
         return cell;
     }else{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DefaultCell];
+        cell.textLabel.text = @"请选择商品属性";
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.textColor = [UIColor grayColor];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -375,7 +396,7 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
         //点击选择商品属性
         [self open];
     }else{
-//        [self close];
+        
     }
 }
 
@@ -431,10 +452,10 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     NSLog(@"zoubuzou ");
     [self close];
 }
-//规格上加减按钮点击
+//规格上规格按钮点击
 -(void)clickBtnIndex:(NSInteger)index WithBtnInfo:(NSString *)info changeView:(LYTSudokuView *)sudokuView{
-    NSLog(@"clickBtnIndex----%ld   WithBtnInfo----%@",index,info);
-    
+    NSLog(@"clickBtnIndex----%ld   WithBtnInfo----%@   changeView----%ld",index,info,sudokuView.selectId);
+    [self.defaultSelectArr replaceObjectAtIndex:index withObject:[NSString stringWithFormat:@"%ld",sudokuView.selectId]];
     NSArray *routeArr = @[@"1-5-3",
                           @"1-5-4",
                           @"1-5-5",
@@ -442,6 +463,8 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
                           @"1-2-3",
                           @"1-1-3",
                           @"1-3-6"];
+    NSString *key = [NSString stringWithFormat:@"%ld",index];
+    [self.selectSpecTypeDic setObject:info forKey:key];
     
 }
 //规格上加减按钮点击
@@ -465,6 +488,29 @@ static NSString *GoodsDetailCell    = @"LYTGoodsDetailCell";
     }
     countLabel.text = [NSString stringWithFormat:@"%d",count];
 }
-
+//规格上确定按钮点击
+-(void)popViewBtnClick:(UIButton *)sender{
+    NSLog(@"popViewBtnClick");
+    [LYTBackView dissMiss];
+    [self close];
+    NSLog(@"self.selectSpecTypeDic-----%@",self.selectSpecTypeDic);
+    NSIndexPath *index1 =  [NSIndexPath indexPathForItem:sender.tag inSection:0];
+    UITableViewCell *cell =  [_LYTGoodsDetailTable cellForRowAtIndexPath:index1];
+    cell.textLabel.textColor = [UIColor redColor];
+    
+    NSString *specStr = @"";
+    for (int i = 0; i < self.selectSpecTypeDic.count; i ++ ) {
+        NSString *key = [NSString stringWithFormat:@"%d",i];
+        if (i <= 0) {
+            specStr = [NSString stringWithFormat:@"规格:%@",self.selectSpecTypeDic[key]];
+//            return;
+        }else{
+            specStr = [NSString stringWithFormat:@"%@-%@",specStr,self.selectSpecTypeDic[key]];
+//            return;
+        }
+    }
+    
+    cell.textLabel.text = specStr;
+}
 
 @end

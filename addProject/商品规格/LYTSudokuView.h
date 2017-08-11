@@ -28,8 +28,8 @@ typedef enum : NSUInteger {
 @property(nonatomic,assign)NSInteger selectIndex;
 //显示view高度
 @property(nonatomic,assign)NSInteger viewHight;
-//存储路径数组
-@property(nonatomic,retain)NSArray *routeArr;
+//默认选择位置
+@property(nonatomic,assign)NSInteger selectId;
 
 @property(nonatomic,assign)LYTSudokuBtnSelectType selectType;
 
@@ -37,6 +37,6 @@ typedef enum : NSUInteger {
 @property(nonatomic,retain)id <LYTSudokuDelegate>delegate;
 
 
--(void)configViewWithDataArr:(NSArray *)arr selectIndex:(NSInteger)index;
+-(void)configViewWithDataArr:(NSArray *)arr DataIdArr:(NSArray *)idArr selectIndex:(NSInteger)index;
 
 @end

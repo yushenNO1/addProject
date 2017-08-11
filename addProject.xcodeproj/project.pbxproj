@@ -15,6 +15,9 @@
 		9A1539411F25860B00C20D44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A15393F1F25860B00C20D44 /* LaunchScreen.storyboard */; };
 		9A1642E61F31A9C000E361D4 /* LYTFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1642E51F31A9C000E361D4 /* LYTFMDB.m */; };
 		9A1642E91F31ACE800E361D4 /* LYTGoodsInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1642E81F31ACE800E361D4 /* LYTGoodsInfoModel.m */; };
+		9A3295981F3BFB8E007C61CB /* LYTLocalOrderList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3295971F3BFB8E007C61CB /* LYTLocalOrderList.m */; };
+		9A43B33C1F3AF04300241F02 /* WDHRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A43B33B1F3AF04300241F02 /* WDHRequest.m */; };
+		9A43B33F1F3AF58900241F02 /* LYTLifeShopListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A43B33E1F3AF58900241F02 /* LYTLifeShopListModel.m */; };
 		9A86477B1F32FFD800480905 /* LYTSudokuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86477A1F32FFD800480905 /* LYTSudokuView.m */; };
 		9AC088961F307C00007AA17D /* LYTGoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC088951F307C00007AA17D /* LYTGoodsDetailCell.m */; };
 		9AD6B0B31F2ECB6300FAC207 /* LYTLifeTableCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6B0AE1F2ECB6300FAC207 /* LYTLifeTableCell1.m */; };
@@ -53,6 +56,12 @@
 		9A1642E51F31A9C000E361D4 /* LYTFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTFMDB.m; sourceTree = "<group>"; };
 		9A1642E71F31ACE800E361D4 /* LYTGoodsInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTGoodsInfoModel.h; sourceTree = "<group>"; };
 		9A1642E81F31ACE800E361D4 /* LYTGoodsInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTGoodsInfoModel.m; sourceTree = "<group>"; };
+		9A3295961F3BFB8E007C61CB /* LYTLocalOrderList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTLocalOrderList.h; sourceTree = "<group>"; };
+		9A3295971F3BFB8E007C61CB /* LYTLocalOrderList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTLocalOrderList.m; sourceTree = "<group>"; };
+		9A43B33A1F3AF04300241F02 /* WDHRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDHRequest.h; sourceTree = "<group>"; };
+		9A43B33B1F3AF04300241F02 /* WDHRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDHRequest.m; sourceTree = "<group>"; };
+		9A43B33D1F3AF58900241F02 /* LYTLifeShopListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTLifeShopListModel.h; sourceTree = "<group>"; };
+		9A43B33E1F3AF58900241F02 /* LYTLifeShopListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTLifeShopListModel.m; sourceTree = "<group>"; };
 		9A8647771F32CD6200480905 /* big_buck_bunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = big_buck_bunny.mp4; sourceTree = "<group>"; };
 		9A8647791F32FFD800480905 /* LYTSudokuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTSudokuView.h; sourceTree = "<group>"; };
 		9A86477A1F32FFD800480905 /* LYTSudokuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTSudokuView.m; sourceTree = "<group>"; };
@@ -148,6 +157,7 @@
 				9AD6B0C01F2ECBC600FAC207 /* 3DTouch */,
 				9AD6B0B61F2ECB9800FAC207 /* 商家店铺 */,
 				9AD6B0AC1F2ECB6300FAC207 /* 首页 */,
+				9A3295951F3BFB5E007C61CB /* 订单列表 */,
 				9A15393D1F25860B00C20D44 /* Assets.xcassets */,
 				9A15393F1F25860B00C20D44 /* LaunchScreen.storyboard */,
 				9A1539421F25860B00C20D44 /* Info.plist */,
@@ -167,6 +177,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9A3295951F3BFB5E007C61CB /* 订单列表 */ = {
+			isa = PBXGroup;
+			children = (
+				9A3295961F3BFB8E007C61CB /* LYTLocalOrderList.h */,
+				9A3295971F3BFB8E007C61CB /* LYTLocalOrderList.m */,
+			);
+			path = "订单列表";
+			sourceTree = "<group>";
+		};
 		9A8647781F32FE6000480905 /* 商品规格 */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +200,8 @@
 			children = (
 				9AD6B0B11F2ECB6300FAC207 /* LYTLifeTableVC.h */,
 				9AD6B0B21F2ECB6300FAC207 /* LYTLifeTableVC.m */,
+				9A43B33D1F3AF58900241F02 /* LYTLifeShopListModel.h */,
+				9A43B33E1F3AF58900241F02 /* LYTLifeShopListModel.m */,
 				9AD6B0AD1F2ECB6300FAC207 /* LYTLifeTableCell1.h */,
 				9AD6B0AE1F2ECB6300FAC207 /* LYTLifeTableCell1.m */,
 				9AD6B0AF1F2ECB6300FAC207 /* LYTLifeTableCell2.h */,
@@ -247,6 +268,8 @@
 		9AD6B0D31F2ECC5E00FAC207 /* LYT私有封装 */ = {
 			isa = PBXGroup;
 			children = (
+				9A43B33A1F3AF04300241F02 /* WDHRequest.h */,
+				9A43B33B1F3AF04300241F02 /* WDHRequest.m */,
 				9AD6B0D41F2ECC5E00FAC207 /* LYTBackView.h */,
 				9AD6B0D51F2ECC5E00FAC207 /* LYTBackView.m */,
 				9AD6B0D61F2ECC5E00FAC207 /* LYTPrivatelyToors.h */,
@@ -452,9 +475,12 @@
 				9A1539301F25860A00C20D44 /* main.m in Sources */,
 				9AD6B0BD1F2ECB9800FAC207 /* LYTMerchantShop.m in Sources */,
 				9AD6B0D81F2ECC5E00FAC207 /* LYTBackView.m in Sources */,
+				9A43B33F1F3AF58900241F02 /* LYTLifeShopListModel.m in Sources */,
 				9A86477B1F32FFD800480905 /* LYTSudokuView.m in Sources */,
+				9A3295981F3BFB8E007C61CB /* LYTLocalOrderList.m in Sources */,
 				9A15393C1F25860B00C20D44 /* addProject.xcdatamodeld in Sources */,
 				9AD6B0CB1F2ECBE300FAC207 /* LYTSortChildCell.m in Sources */,
+				9A43B33C1F3AF04300241F02 /* WDHRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
