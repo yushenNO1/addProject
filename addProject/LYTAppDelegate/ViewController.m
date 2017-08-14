@@ -106,11 +106,11 @@
 }
 -(void)btn1Click{
     LYTMerchantShop *vc = [[LYTMerchantShop alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [LYTPrivatelyToors pushNextController:vc withNav:self.navigationController];
 }
 -(void)btn2Click{
     LYTLifeTableVC *vc = [[LYTLifeTableVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [LYTPrivatelyToors pushNextController:vc withNav:self.navigationController];
 }
 -(void)btn3Click:(UIButton *)sender{
     if ([[UIDevice currentDevice].systemVersion floatValue] < 8.0) {
@@ -204,27 +204,27 @@
 
 -(void)btn5Click{
     LYTSortVC *vc = [[LYTSortVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [LYTPrivatelyToors pushNextController:vc withNav:self.navigationController];
 }
 
 
 -(void)btn6Click{
     LYTSearchVC *vc = [[LYTSearchVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [LYTPrivatelyToors pushNextController:vc withNav:self.navigationController];
 }
 
 -(void)btn7Click{
     LYTGoodsDetailVC *vc = [[LYTGoodsDetailVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [LYTPrivatelyToors pushNextController:vc withNav:self.navigationController];
 }
 
 -(void)btn8Click{
     LYTLocalGoodsDetailVC *vc = [[LYTLocalGoodsDetailVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [LYTPrivatelyToors pushNextController:vc withNav:self.navigationController];
 }
 
 -(void)btn9Click{
     LYTLocalOrderList *vc = [[LYTLocalOrderList alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [LYTPrivatelyToors pushNextController:vc withNav:self.navigationController];
 }
 @end

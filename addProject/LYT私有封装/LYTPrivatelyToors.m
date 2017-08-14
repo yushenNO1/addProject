@@ -102,4 +102,21 @@
     
 }
 
+
++ (void)pushNextController:(id)Controller withNav:(UINavigationController *)navigation{
+    CATransition *animation = [CATransition animation];
+    animation.type = @"rippleEffect";
+    animation.subtype = @"fromBottom";
+    animation.duration=  1.0;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    
+    [navigation.view.layer addAnimation:animation forKey:nil];
+    
+    [navigation pushViewController:Controller animated:YES];
+    
+}
+
+
+
+
 @end

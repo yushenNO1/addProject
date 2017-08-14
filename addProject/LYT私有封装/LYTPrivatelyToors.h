@@ -15,4 +15,7 @@
 
 //跑马灯动画
 +(void)addMarqueeAnimationWithView:(UIView *)view;
+
+//push跳转页面时添加动画
++ (void)pushNextController:(id)Controller withNav:(UINavigationController *)navigation;
 @end
