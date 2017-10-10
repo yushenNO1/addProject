@@ -17,6 +17,10 @@
 #import "LYTLocalGoodsDetailVC.h"                   //本地商品详情页面
 #import "LYTLocalOrderList.h"                       //订单列表
 
+
+
+#import "LYT_CustomLabel.h"                         //自定义Label
+
 @interface ViewController ()<UIViewControllerPreviewingDelegate>
 
 @end
@@ -34,6 +38,15 @@
     btn1.backgroundColor = [UIColor redColor];
     [self.view addSubview:btn1];
     [btn1 addTarget:self action:@selector(btn1Click) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *btn11 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn11.frame = CGRectMake(210, 70, 100, 20);
+    [btn11 setTitle:@"自定义Label" forState:UIControlStateNormal];
+    btn11.backgroundColor = [UIColor redColor];
+    [self.view addSubview:btn11];
+    [btn11 addTarget:self action:@selector(btn11Click) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn2.frame = CGRectMake(10, 100, 100, 20);
@@ -106,6 +119,10 @@
 }
 -(void)btn1Click{
     LYTMerchantShop *vc = [[LYTMerchantShop alloc]init];
+    [LYTPrivatelyToors pushNextController:vc withNav:self.navigationController];
+}
+-(void)btn11Click{
+    LYT_CustomLabel *vc = [[LYT_CustomLabel alloc]init];
     [LYTPrivatelyToors pushNextController:vc withNav:self.navigationController];
 }
 -(void)btn2Click{
