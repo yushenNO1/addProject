@@ -619,7 +619,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EJ844Y9UU7;
-				GCC_PREFIX_HEADER = /Users/yu/Documents/GitHub/addProject/addProject/addProjectHeader.h;
+				GCC_PREFIX_HEADER = /Users/yushen/Documents/GitHub/addProject/addProject/addProjectHeader.h;
 				INFOPLIST_FILE = addProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -635,7 +635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EJ844Y9UU7;
-				GCC_PREFIX_HEADER = /Users/yu/Documents/GitHub/addProject/addProject/addProjectHeader.h;
+				GCC_PREFIX_HEADER = /Users/yushen/Documents/GitHub/addProject/addProject/addProjectHeader.h;
 				INFOPLIST_FILE = addProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
